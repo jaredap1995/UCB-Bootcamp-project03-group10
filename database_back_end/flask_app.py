@@ -26,4 +26,14 @@ else:
 conn.close()
 
 #################################################
+# Flask Setup
+#################################################
+
+app = Flask(__name__)
+
+@app.route("/")
+def home():
+    f"Welcome to the Seattle Bike Traffic API!<br/>"
+    f"Available Routes:<br/>"
+
 
