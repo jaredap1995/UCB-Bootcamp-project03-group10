@@ -80,7 +80,29 @@ def alldata_broadway():
 
     return jsonify(bikes_list)
 
+@app.route("/api/burkegilman")
+def burke_gilman():
+    query = '''Select date_part('year', date) as year, SUM(total_ped_and_bike), SUM(pedestrian_south), SUM(pedestrian_north), SUM (bike_north), SUM(bike_south)
+    from burke_gilman
+    group by year'''
+    cursor.execute(query)
 
+    first = cursor.fetchall()
+    print(first)
+
+    bikes_ped_list = []
+    for date, total_ped_and_bike, pedestrian_south, pedestrian_north,bike_north, bike_south in first:
+        dict_bikes = {}
+        dict_bikes['year'] = date
+        dict_bikes['total_ped_and_bike'] = total_ped_and_bike
+        dict_bikes['pedestrian_south'] = pedestrian_south
+        dict_bikes['pedestrian_north'] = pedestrian_north
+        dict_bikes['bike_north'] = bike_north
+        dict_bikes['bike_south'] = bike_south
+        bikes_ped_list.append(dict_bikes)
+
+
+    return jsonify(bikes_ped_list)
 
 
    
