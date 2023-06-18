@@ -20,3 +20,5 @@ west int);
 
 
 \copy data_csv (columns) from 'Path/to/file' WITH (format csv, HEADER true);
+
+\copy weather_seattle (time_, temp_real_F, temp_feel_F, precipitation_inch, weathercode, wind_speed) from '/Users/jaredperez/Documents/UCB-VIRT-DATA-PT-02-2023-U-LOLC/UCB-Bootcamp-project03-group10/database_back_end/weather_data.csv' WITH (format csv, HEADER true);
