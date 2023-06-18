@@ -1,4 +1,4 @@
-CREATE TABLE bikes (id serial primary key,
+CREATE TABLE Fremont (id serial primary key,
 Date timestamp,
 total int,
 east int,
@@ -12,5 +12,11 @@ pedestrian_north int,
 bike_north int,
 bike_south int);
 
+CREATE TABLE Broadway (id serial primary key,
+Date timestamp,
+total int,
+east int,
+west int);
 
-\copy bikes (Date, total, east, west) from '/Users/jaredperez/Documents/UCB-VIRT-DATA-PT-02-2023-U-LOLC/UCB-Bootcamp-project03-group10/database_back_end/Fremont_Bike.csv' WITH (format csv, HEADER true);
+
+\copy data_csv (columns) from 'Path/to/file' WITH (format csv, HEADER true);
