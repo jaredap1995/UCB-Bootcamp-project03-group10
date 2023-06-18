@@ -3,17 +3,20 @@
 import datetime as dt
 from flask import Flask, jsonify, render_template
 import psycopg2 
+from dotenv import load_dotenv
+import os
 
 app = Flask(__name__)
 
+load_dotenv()
 
 #####psycopg2 
 # Connection details
-host =  "chunee.db.elephantsql.com" #"postgres://hgykzxtn:***@chunee.db.elephantsql.com/hgykzxtn"         
-database = "hgykzxtn"
-user = "hgykzxtn"
-password = "0-A1hdKOOMmFxwFsFmO3JNByMhhRBew-"
-port=5432     
+host = os.getenv("HOST")     
+database = os.getenv("database")
+user = os.getenv("username")
+password = os.getenv("password")
+port=5432      
 
 # Establish connection
 connection = psycopg2.connect(
