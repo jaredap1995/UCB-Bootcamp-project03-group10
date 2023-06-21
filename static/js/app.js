@@ -8,9 +8,9 @@ window.Apex = {
   }
 };
 
-let url_2 = "/api/broadway";
-let url = "/api/alldata";
-let url_3 = "/api/burkegilman";
+// let url_2 = "/api/broadway";
+// let url = "/api/alldata";
+// let url_3 = "/api/burkegilman";
 
 // d3.json(url_2)
 //   .then((broadwayData)) => {
@@ -124,11 +124,14 @@ d3.json(broadwayData)
   let broadwayDate = []
   let broadwayNB = []
   let broadwaySB = []
+  let broadwayTotal = []
 
   dataBW.forEach((elem) => {
+    console.log({elem})
     broadwayDate.push(elem.year);
     broadwayNB.push(elem.north_bike);
     broadwaySB.push(elem.south_bike);
+    broadwayTotal.push(elem.total)
   });
   console.log({broadwayNB});
   console.log({broadwaySB});
@@ -138,6 +141,7 @@ d3.json(broadwayData)
   let leftXData = broadwayDate
   let rightYData = broadwaySB
   let rightXData = broadwayDate
+  let totalData = broadwayTotal
 
 // bar graph on the left
   var optionsBarLeft = {
@@ -212,7 +216,7 @@ d3.json(broadwayData)
         offsetY: -36
       },
       title: {
-        text: 'Southbound',
+        text: 'Northbound',
         align: 'left',
       },
       tooltip: {
@@ -307,4 +311,53 @@ d3.json(broadwayData)
   }
   var chartBar = new ApexCharts(document.querySelector('#barb'), optionsBarRight);
   chartBar.render();
+
+  // Ideally would have daily data for every location in one graph
+  var trace1 = {
+    type: "scatter",
+    mode: "lines",
+    name: 'Total Bike Traffic',
+    x: leftXData,
+    y: totalData,
+  //   x: unpack(rows, 'Date'),
+  //   y: unpack(rows, 'AAPL.High'),
+    line: {
+      color: '#17BECF',
+      width: 5
+    }
+  }
+  
+  var data = [trace1];
+  
+  var layout = {
+    title: 'Total Bike Traffic',
+    xaxis: {
+      autorange: true,
+      range: ['2014', '2020'],
+      rangeselector: {buttons: [
+          {
+            count: 6,
+            label: '6m',
+            step: 'month',
+            stepmode: 'backward'
+          },
+          {
+            count: 1,
+            label: '1y',
+            step: 'year',
+            stepmode: 'backward'
+          },
+          {step: 'all'}
+        ]},
+      rangeslider: {range: ['2014', '2021']},
+      type: 'date'
+    },
+    yaxis: {
+      autorange: true,
+      range: [86.8700008333, 138.870004167],
+      type: 'linear'
+    }
+  };
+  
+  Plotly.newPlot("barbg", data, layout);
 });
