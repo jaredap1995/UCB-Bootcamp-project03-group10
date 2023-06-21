@@ -84,8 +84,8 @@ d3.json(url_2)
 
 // Mock data for illustrative purposes
 var heatArray = [
-  [47.6062, -122.3321, 0.5], // Seattle location with 0.5 traffic intensity
-  [47.6097, -122.3331, 0.8], // Another location with 0.8 traffic intensity
+  [47.6062, -122.3321, 100], // Seattle location with 0.5 traffic intensity
+  [47.6511, -122.3475, 50], // Another location with 0.8 traffic intensity
 ];
 
 L.heatLayer(heatArray).addTo(map);
