@@ -1,6 +1,0 @@
-{
-  "dependencies": {
-    "apexcharts": "^3.41.0",
-    "plotly.js": "^2.24.2"
-  }
-}
