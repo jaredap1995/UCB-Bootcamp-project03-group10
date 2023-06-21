@@ -3,6 +3,11 @@
 //This ensures that the second API call is made only after the first one is completed successfully. 
 //By chaining the promises, the code will fetch data for both charts and plot them accordingly.
 
+
+
+
+
+
 let url_2 = "/api/broadway";
 let url = "/api/alldata";
 let url_3 = "/api/burkegilman";
