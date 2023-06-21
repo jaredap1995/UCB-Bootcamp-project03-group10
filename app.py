@@ -38,16 +38,15 @@ def welcome():
     return render_template("index.html")
 
 
-@app.route("/api/alldata")
-def alldata():
+@app.route("/api/fremont_year")
+def freemont_year():
     query = '''Select date_part('year', date) as year, SUM(total), SUM(east), SUM (west)
     from fremont
     group by year'''
     cursor.execute(query)
 
     first = cursor.fetchall()
-    print(first)
-
+    
     bikes_list = []
     for date, all, east, west in first:
         dict_bikes = {}
@@ -61,15 +60,14 @@ def alldata():
     return jsonify(bikes_list)
 
 
-@app.route("/api/broadway")
-def alldata_broadway():
+@app.route("/api/broadway_year")
+def broadway_year():
     query = '''Select date_part('year', date) as year, SUM(total), SUM(north_bike), SUM (south_bike)
     from broadway
     group by year'''
     cursor.execute(query)
 
     first = cursor.fetchall()
-    print(first)
 
     bikes_list = []
     for date, total, north_bike, south_bike in first:
@@ -83,15 +81,14 @@ def alldata_broadway():
 
     return jsonify(bikes_list)
 
-@app.route("/api/burkegilman")
-def burke_gilman():
+@app.route("/api/burkegilman_year")
+def burke_gilman_year():
     query = '''Select date_part('year', date) as year, SUM(total_ped_and_bike), SUM(pedestrian_south), SUM(pedestrian_north), SUM (bike_north), SUM(bike_south)
     from burke_gilman
     group by year'''
     cursor.execute(query)
 
     first = cursor.fetchall()
-    print(first)
 
     bikes_ped_list = []
     for date, total_ped_and_bike, pedestrian_south, pedestrian_north,bike_north, bike_south in first:
@@ -107,6 +104,24 @@ def burke_gilman():
 
     return jsonify(bikes_ped_list)
 
+@app.route("/api/fremont_hourly")
+def freemont_hourly():
+    query = '''SELECT date, total, east, west
+            from fremont;'''
+    cursor.execute(query)
+
+    first = cursor.fetchall()
+
+    bikes_list = []
+    for date, total, east, west in first:
+        dict_bikes = {}
+        dict_bikes['date'] = date
+        dict_bikes['total'] = total
+        dict_bikes['east'] = east
+        dict_bikes['west'] = west
+        bikes_list.append(dict_bikes)
+        
+    return jsonify(bikes_list)
 
 
 if __name__ == '__main__':

@@ -13,23 +13,6 @@ window.Apex = {
 // let url_3 = "/api/burkegilman";
 
 // d3.json(url_2)
-//   .then((broadwayData)) => {
-//     let broadwayDate = []
-//     let broadwayNB = []
-//     let broadwaySB = []
-
-//     broadwayData.forEach((elem) => {
-//       console.log({elem});
-//       broadwayDate.push(elem.Date);
-//       broadwayNB.push(elem.NB);
-//       broadwaySB.push(elem.SB);
-//     });
-//     console.log((broadwayNB))};
-//   .catch((error) => {
-//     console.log('Error:', error);
-// });
-
-// d3.json(url_2)
 //   .then((data_b) => {
 //     let year_list_b = [];
 //     let total_list_b = [];
@@ -115,9 +98,10 @@ L.heatLayer(heatArray).addTo(map);
 
 
 // ===================================
-let broadwayData = "/api/broadway";
-let fremontData = "/api/alldata";
-let burkegilmanData = "/api/burkegilman";
+let broadwayData = "/api/broadway_year";
+let fremontData = "/api/fremont_year";
+let burkegilmanData = "/api/burkegilman_year";
+let fremontHourly = "/api/fremont_hourly"
 
 d3.json(broadwayData)
   .then(function(dataBW) {
@@ -312,29 +296,59 @@ d3.json(broadwayData)
   var chartBar = new ApexCharts(document.querySelector('#barb'), optionsBarRight);
   chartBar.render();
 
-  // Ideally would have daily data for every location in one graph
+  return d3.json(fremontHourly)
+})
+  .then(function(fremontDataHourly) {
+    let fremontDate = []
+    let fremontEB = []
+    let fremontWB = []
+    let fremontTotal = []
+  
+    fremontDataHourly.forEach((elem) => {
+      // console.log({elem})
+      fremontDate.push(elem.date);
+      fremontEB.push(elem.east);
+      fremontWB.push(elem.west);
+      fremontTotal.push(elem.total)
+    });
+    // Ideally would have daily data for every location in one graph
   var trace1 = {
     type: "scatter",
     mode: "lines",
     name: 'Total Bike Traffic',
-    x: leftXData,
-    y: totalData,
+    x: fremontDate,
+    y: fremontTotal,
   //   x: unpack(rows, 'Date'),
   //   y: unpack(rows, 'AAPL.High'),
-    line: {
-      color: '#17BECF',
-      width: 5
-    }
+    line: {color: '#7F7F7F'}
   }
-  
+
   var data = [trace1];
   
   var layout = {
     title: 'Total Bike Traffic',
     xaxis: {
-      autorange: true,
-      range: ['2014', '2020'],
+      autorange: false,
+      range: ['2012', '2023'],
       rangeselector: {buttons: [
+          {
+            count: 1,
+            label: '1d',
+            step: 'day',
+            stepmode: 'backward'
+          },
+          {
+            count: 1,
+            label: '1w',
+            step: 'week',
+            stepmode: 'backward'
+          },
+          {
+            count: 1,
+            label: '1m',
+            step: 'month',
+            stepmode: 'backward'
+          },
           {
             count: 6,
             label: '6m',
@@ -349,15 +363,16 @@ d3.json(broadwayData)
           },
           {step: 'all'}
         ]},
-      rangeslider: {range: ['2014', '2021']},
+      rangeslider: {range: ['2012', '2023']},
       type: 'date'
     },
     yaxis: {
       autorange: true,
-      range: [86.8700008333, 138.870004167],
+      range: [0, 1000],
       type: 'linear'
     }
   };
-  
+  console.log({fremontDate})
+  console.log({fremontTotal})
   Plotly.newPlot("barbg", data, layout);
-});
+  });
