@@ -131,12 +131,15 @@ d3.json(broadwayData)
     broadwaySB.push(elem.south_bike);
   });
   console.log({broadwayNB});
+  console.log({broadwaySB});
+
+  // If statements will go here to added time scale and locations
   let leftYData = broadwayNB
   let leftXData = broadwayDate
-  let rightYData =broadwaySB
+  let rightYData = broadwaySB
   let rightXData = broadwayDate
 
-  // bar graph on the right
+// bar graph on the left
   var optionsBarLeft = {
       chart: {
         type: 'bar',
@@ -209,7 +212,7 @@ d3.json(broadwayData)
         offsetY: -36
       },
       title: {
-        text: 'Eastbound',
+        text: 'Southbound',
         align: 'left',
       },
       tooltip: {
@@ -221,7 +224,7 @@ d3.json(broadwayData)
   var chartBar = new ApexCharts(document.querySelector('#bar'), optionsBarLeft);
   chartBar.render();
 
-// Bar graph on the left
+// Bar graph on the right
   var optionsBarRight = {
       chart: {
         type: 'bar',
@@ -294,7 +297,7 @@ d3.json(broadwayData)
         offsetY: -36
       },
       title: {
-        text: 'Westbound',
+        text: 'Southbound',
         align: 'left',
       },
       tooltip: {
