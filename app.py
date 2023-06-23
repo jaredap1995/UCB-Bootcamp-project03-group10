@@ -118,15 +118,15 @@ def burke_gilman():
 def heatmap_data():
 
     #Query 1
-    cursor.execute("Select total from fremont")
+    cursor.execute("Select total from fremont_")
     result=pd.DataFrame(cursor.fetchall())
 
     #Query 2
-    cursor.execute("Select total_ped_and_bike from burke_gilman")
+    cursor.execute("Select total_ped_and_bike from Burke_Gilman")
     result2=pd.DataFrame(cursor.fetchall())
 
     #Query 3
-    cursor.execute("SELECT total FROM broadway")
+    cursor.execute("SELECT total FROM Broadway")
     result3=pd.DataFrame(cursor.fetchall())
 
     concatenated = pd.concat([result, result2, result3], axis=1)
@@ -138,7 +138,4 @@ def heatmap_data():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
-
-cursor.close()  # Close the cursor
-connection.close()  # Close the connection
+    app.run(port=8000, debug=True)
