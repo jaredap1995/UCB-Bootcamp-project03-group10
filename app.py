@@ -5,6 +5,7 @@ from flask import Flask, jsonify, render_template
 import psycopg2 
 from dotenv import load_dotenv
 import os
+import pandas as pd
 
 app = Flask(__name__)
 
@@ -106,6 +107,27 @@ def burke_gilman():
 
 
     return jsonify(bikes_ped_list)
+
+@app.route("/api/heatmap_data")
+def heatmap_data():
+
+    #Query 1
+    cursor.execute("Select total from fremont")
+    result=pd.DataFrame(cursor.fetchall())
+
+    #Query 2
+    cursor.execute("Select total_ped_and_bike from burke_gilman")
+    result2=pd.DataFrame(cursor.fetchall())
+
+    #Query 3
+    cursor.execute("SELECT total FROM broadway")
+    result3=pd.DataFrame(cursor.fetchall())
+
+    concatenated = pd.concat([result, result2, result3], axis=1)
+    concatenated.columns = ['Fremont', 'Burke_Gilman', 'Broadway']
+    concatenated = concatenated.fillna(0)
+
+    return jsonify(concatenated.to_dict(orient="records"))
 
 
 

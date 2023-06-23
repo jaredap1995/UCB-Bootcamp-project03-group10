@@ -79,7 +79,7 @@ d3.json(url_2)
   var map = L.map('mapid').setView([47.6062, -122.3321], 13);
 
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 19,
+    // maxZoom: 19
 }).addTo(map);
 
 // Mock data for illustrative purposes
