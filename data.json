@@ -1,0 +1,74 @@
+[
+  {
+    "bike_north": 207604,
+    "bike_south": 197117,
+    "pedestrian_north": 67314,
+    "pedestrian_south": 72660,
+    "total_ped_and_bike": 544695,
+    "year": 2014.0
+  },
+  {
+    "bike_north": 206684,
+    "bike_south": 207864,
+    "pedestrian_north": 64798,
+    "pedestrian_south": 74809,
+    "total_ped_and_bike": 554155,
+    "year": 2015.0
+  },
+  {
+    "bike_north": 209355,
+    "bike_south": 196038,
+    "pedestrian_north": 78971,
+    "pedestrian_south": 80990,
+    "total_ped_and_bike": 565354,
+    "year": 2016.0
+  },
+  {
+    "bike_north": 193198,
+    "bike_south": 183187,
+    "pedestrian_north": 66054,
+    "pedestrian_south": 241779,
+    "total_ped_and_bike": 684218,
+    "year": 2017.0
+  },
+  {
+    "bike_north": 106813,
+    "bike_south": 124984,
+    "pedestrian_north": 143442,
+    "pedestrian_south": 480428,
+    "total_ped_and_bike": 855667,
+    "year": 2018.0
+  },
+  {
+    "bike_north": 174091,
+    "bike_south": 193901,
+    "pedestrian_north": 73253,
+    "pedestrian_south": 70487,
+    "total_ped_and_bike": 511732,
+    "year": 2019.0
+  },
+  {
+    "bike_north": 114293,
+    "bike_south": 285972,
+    "pedestrian_north": 52577,
+    "pedestrian_south": 110153,
+    "total_ped_and_bike": 562995,
+    "year": 2020.0
+  },
+  {
+    "bike_north": 10779,
+    "bike_south": 11495,
+    "pedestrian_north": null,
+    "pedestrian_south": null,
+    "total_ped_and_bike": 58049,
+    "year": 2021.0
+  },
+  {
+    "bike_north": 133851,
+    "bike_south": 132125,
+    "pedestrian_north": null,
+    "pedestrian_south": null,
+    "total_ped_and_bike": 265976,
+    "year": 2022.0
+  }
+]
