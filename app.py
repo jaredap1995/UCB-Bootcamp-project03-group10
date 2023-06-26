@@ -5,6 +5,7 @@ from flask import Flask, jsonify, render_template
 import psycopg2 
 from dotenv import load_dotenv
 import os
+import pandas as pd
 
 app = Flask(__name__)
 
@@ -109,32 +110,21 @@ def burke_gilman():
 
 @app.route("/api/weather_bins_data")
 def alldata_weatherbins():
-     # Create our session (link) from Python to the DB
-    session = Session(engine)
 
     # Query precipitation
-    results = session.query(weather_bins_data.temp_real_f, weather_bins_data.north_bike_broadway, \
-                            weather_bins_data.south_bike_broadway, weather_bins_data.bike_north_burke, \
-                            weather_bins_data.bike_south_burke, weather_bins_data.east_bike_fremont, \
-                            weather_bins_data.west_bike_fremont
-                              ).all()
+    results = cursor.execute("select temp_real_f, north_bike_broadway, south_bike_broadway, bike_north_burke, bike_south_burke, east_bike_fremont, west_bike_fremont from weather_bins_data")    
 
-    session.close()    
+    results=cursor.fetchall()
+    results=pd.DataFrame(results)
 
-    weatherbin_list = []
-    for temp_real_f, north_bike_broadway, south_bike_broadway, bike_north_burke, bike_south_burke, east_bike_fremont, west_bike_fremont in results:
-        weatherbin_dict = {}
-        weatherbin_dict['temp_real_f'] = temp_real_f
-        weatherbin_dict['north_bike_broadway'] = north_bike_broadway
-        weatherbin_dict['south_bike_broadway'] = south_bike_broadway
-        weatherbin_dict['bike_north_burke'] = bike_north_burke
-        weatherbin_dict['bike_south_burke'] = bike_south_burke
-        weatherbin_dict['east_bike_fremont'] = east_bike_fremont
-        weatherbin_dict['west_bike_fremont'] = west_bike_fremont
-        weatherbin_list.append(weatherbin_dict)
+    results.columns=['temp_real_f', 'north_bike_broadway', 'south_bike_broadway', 'bike_north_burke', 'bike_south_burke', 'east_bike_fremont', 'west_bike_fremont']
 
+    results.index=results['temp_real_f']
 
-    return jsonify(weatherbin_list)
+    
+
+    data_dict=results.to_dict('records')
+    return jsonify(data_dict)
 
 
 
