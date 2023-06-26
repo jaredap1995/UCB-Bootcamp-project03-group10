@@ -7,6 +7,7 @@ from dotenv import load_dotenv
 import os
 import json
 import pandas as pd
+import numpy as np
 
 app = Flask(__name__)
 
@@ -135,19 +136,32 @@ def heatmap_data():
     concatenated=concatenated.drop(['id1', 'id2', 'id3'], axis=1)
     # format the date columns to be YYYY-MM-DD
 
-    test=concatenated[:100]
-    test['date1'] = pd.to_datetime(test['date1'])
-    test['date2'] = pd.to_datetime(test['date2'])
-    test['date3'] = pd.to_datetime(test['date3'])
-    test['date1'] = test['date1'].dt.strftime('%Y-%m-%d')
-    test['date2'] = test['date2'].dt.strftime('%Y-%m-%d')
-    test['date3'] = test['date3'].dt.strftime('%Y-%m-%d')
+    concatenated['date1'] = concatenated['date1'].replace(0, np.nan)
+    concatenated['date2'] = concatenated['date2'].replace(0, np.nan)
+    concatenated['date3'] = concatenated['date3'].replace(0, np.nan)
 
-    test=test.drop(columns=['north_bike', 'south_bike', 'pedestrian_south', 'pedestrian_north', 'bike_north', 'bike_south', 'north_bike2', 'south_bike2'])
+    df_fremont = concatenated[['date1', 'Fremont']].rename(columns={'date1': 'date', 'Fremont': 'count'})
+    df_fremont['location'] = 'Fremont'
 
+    df_burke_gilman = concatenated[['date2', 'Burke_Gilman']].rename(columns={'date2': 'date', 'Burke_Gilman': 'count'})
+    df_burke_gilman['location'] = 'Burke_Gilman'
 
+    df_broadway = concatenated[['date3', 'Broadway']].rename(columns={'date3': 'date', 'Broadway': 'count'})
+    df_broadway['location'] = 'Broadway'
 
-    return jsonify(test.to_dict(orient="records"))
+    df_combined = pd.concat([df_fremont, df_burke_gilman, df_broadway])
+    df_combined = df_combined.dropna(subset=['date'])
+
+    # Create the 'month' column and aggregate counts by month and location
+    df_combined['month'] = df_combined['date'].dt.to_period('M')
+    df_final = df_combined.groupby(['month', 'location']).sum().reset_index()
+
+    #Convert month to string because of extra metadata
+    df_final['month']=df_final['month'].astype(str)
+
+    data_dict = df_final.to_dict('records')
+
+    return jsonify(data_dict)
 
 
 

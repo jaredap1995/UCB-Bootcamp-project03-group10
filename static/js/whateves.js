@@ -31,45 +31,40 @@ d3.json('/api/heatmap_data').then((data) => {
 
     markers.clearLayers();
 
-    let filteredData = data.filter(point => point.month == selectedMonth);
-
-    locations.forEach(location=> {
-      let totalTraffic = filteredData.reduce((sum,point) => sum + point[location.name], 0);
+    locations.forEach(location => {
+      let totalTraffic = 0;
+      let filteredData = data.filter(point => point.month == selectedMonth && point.location == location.name);
+      
+      if(filteredData.length > 0) {
+        totalTraffic = filteredData[0].count;
+      }
+      
       location.totalTraffic = totalTraffic;
+
+      // Calculate min and max traffic
+      let minTraffic = Math.min(...locations.map(location => location.totalTraffic));
+      let maxTraffic = Math.max(...locations.map(location => location.totalTraffic));
+
+      // Normalize traffic to a 0-1 range
+      let normalizedTraffic = (location.totalTraffic - minTraffic) / (maxTraffic - minTraffic);
+
+      let color = `rgb(${255 * normalizedTraffic}, 0, 0)`;
+
+      // Create and add marker
+      let circleMarker = L.circleMarker([location.lat, location.lon], {
+        color: color,
+        fillColor: color,
+        fillOpacity: 0.5,
+        radius: normalizedTraffic > 0.1 ? 35 * normalizedTraffic : 10 // If else statement so the bubbles dont end up too small
+      });
+
+      //Tooltip for population
+      circleMarker.bindTooltip(`${location.name}: ${location.totalTraffic}`, { opacity: 0.8 });
+
+      circleMarker.addTo(markers);
     });
-
-
-  // Calculate total traffic for each location
-  locations.forEach(location => {
-    let totalTraffic = data.reduce((sum, point) => sum + point[location.name], 0);
-    location.totalTraffic = totalTraffic;
   });
 
-  // Calculate min and max traffic
-  let minTraffic = Math.min(...locations.map(location => location.totalTraffic));
-  let maxTraffic = Math.max(...locations.map(location => location.totalTraffic));
-
-  // Add markers for each location
-  locations.forEach(location => {
-    // Normalize traffic to a 0-1 range
-    let normalizedTraffic = (location.totalTraffic - minTraffic) / (maxTraffic - minTraffic);
-
-    let color = `rgb(${255 * normalizedTraffic}, 0, 0)`;
-
-    // Create and add marker
-    let circleMarker = L.circleMarker([location.lat, location.lon], {
-      color: color,
-      fillColor: color,
-      fillOpacity: 0.5,
-      radius: normalizedTraffic > 0.1 ? 35 * normalizedTraffic : 10 // adjust as needed
-    });
-
-    // Adjust the opacity of the tooltip to make it more readable
-    circleMarker.bindTooltip(`${location.name}: ${location.totalTraffic}`, { opacity: 0.8 });
-
-    circleMarker.addTo(map);
-  });
-});
 }).catch((error) => {
   console.log('Error:', error);
 });
