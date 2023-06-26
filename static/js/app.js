@@ -11,6 +11,7 @@
 let url_2 = "/api/broadway";
 let url = "/api/alldata";
 let url_3 = "/api/burkegilman";
+let url_4 = "/api/weather_bins_data"
 
 d3.json(url_2)
   .then((data_b) => {
@@ -95,5 +96,32 @@ var heatArray = [
 
 L.heatLayer(heatArray).addTo(map);
 
+//Binned weather data bar
+function charts(sample_id){
+  let chartSample=jsData;
+  let valueArray=chartSample.samples.filter(
+      (sampleObject)=>sampleObject.temp_real_f==sample_id);
+  console.log(valueArray);
+  let sampleValue=valueArray[0];
+  let north_bike_broadway=sampleValue.north_bike_broadway;
 
+  let barData=[{
+      x: temp_real_f
+      y: north_bike_broadway
+      type: "bar",
+      orientation: "h",
+      marker:{
+          size:sample_values
+      }    
 
+  }];
+  Plotly.newPlot("bar",barData);
+  console.log(north_bike_broadway);
+      };
+
+// Dropdown selection function
+function optionChanged(dataOption){
+  console.log(dataOption)
+
+url_4(dataOption)
+};
