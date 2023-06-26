@@ -113,19 +113,22 @@ def burke_gilman():
 def heatmap_data():
 
     #Query 1
-    cursor.execute("Select * from fremont_")
+    cursor.execute("Select * from fremont")
     result=pd.DataFrame(cursor.fetchall())
 
     #Query 2
-    cursor.execute("Select * from Burke_Gilman")
+    cursor.execute("Select * from burke_gilman")
     result2=pd.DataFrame(cursor.fetchall())
 
     #Query 3
-    cursor.execute("SELECT * FROM Broadway")
+    cursor.execute("SELECT * FROM broadway")
     result3=pd.DataFrame(cursor.fetchall())
 
     concatenated = pd.concat([result, result2, result3], axis=1)
-    concatenated.columns = ['id1', 'date1', 'Fremont', 'north_bike', 'south_bike', 'id2', 'date2', 'Burke_Gilman', 'pedestrian_south', 'pedestrian_north', 'bike_north', 'bike_south', 'id3', 'date3', 'Broadway', 'north_bike2', 'south_bike2' ]
+
+    print(concatenated.columns)
+
+    concatenated.columns = ['id1', 'date1', 'Fremont', 'north_bike', 'south_bike', 'location_name', 'id2', 'date2', 'Burke_Gilman', 'pedestrian_south', 'pedestrian_north', 'bike_north', 'bike_south', 'location_name','id3', 'date3', 'Broadway', 'north_bike2', 'south_bike2', 'location_name' ]
     # concatenated = concatenated.fillna(0)
     concatenated=concatenated.drop(['id1', 'id2', 'id3'], axis=1)
     # format the date columns to be YYYY-MM-DD
