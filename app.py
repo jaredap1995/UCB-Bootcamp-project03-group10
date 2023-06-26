@@ -118,22 +118,36 @@ def burke_gilman():
 def heatmap_data():
 
     #Query 1
-    cursor.execute("Select total from fremont_")
+    cursor.execute("Select * from fremont_")
     result=pd.DataFrame(cursor.fetchall())
 
     #Query 2
-    cursor.execute("Select total_ped_and_bike from Burke_Gilman")
+    cursor.execute("Select * from Burke_Gilman")
     result2=pd.DataFrame(cursor.fetchall())
 
     #Query 3
-    cursor.execute("SELECT total FROM Broadway")
+    cursor.execute("SELECT * FROM Broadway")
     result3=pd.DataFrame(cursor.fetchall())
 
     concatenated = pd.concat([result, result2, result3], axis=1)
-    concatenated.columns = ['Fremont', 'Burke_Gilman', 'Broadway']
-    concatenated = concatenated.fillna(0)
+    concatenated.columns = ['id1', 'date1', 'Fremont', 'north_bike', 'south_bike', 'id2', 'date2', 'Burke_Gilman', 'pedestrian_south', 'pedestrian_north', 'bike_north', 'bike_south', 'id3', 'date3', 'Broadway', 'north_bike2', 'south_bike2' ]
+    # concatenated = concatenated.fillna(0)
+    concatenated=concatenated.drop(['id1', 'id2', 'id3'], axis=1)
+    # format the date columns to be YYYY-MM-DD
 
-    return jsonify(concatenated.to_dict(orient="records"))
+    test=concatenated[:100]
+    test['date1'] = pd.to_datetime(test['date1'])
+    test['date2'] = pd.to_datetime(test['date2'])
+    test['date3'] = pd.to_datetime(test['date3'])
+    test['date1'] = test['date1'].dt.strftime('%Y-%m-%d')
+    test['date2'] = test['date2'].dt.strftime('%Y-%m-%d')
+    test['date3'] = test['date3'].dt.strftime('%Y-%m-%d')
+
+    test=test.drop(columns=['north_bike', 'south_bike', 'pedestrian_south', 'pedestrian_north', 'bike_north', 'bike_south', 'north_bike2', 'south_bike2'])
+
+
+
+    return jsonify(test.to_dict(orient="records"))
 
 
 
