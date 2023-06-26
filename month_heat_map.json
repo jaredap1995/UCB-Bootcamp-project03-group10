@@ -1,0 +1,1221 @@
+[{
+    "month": "2012-10",
+    "location": "Fremont",
+    "count": 65695.0
+}, {
+    "month": "2012-11",
+    "location": "Fremont",
+    "count": 50647.0
+}, {
+    "month": "2012-12",
+    "location": "Fremont",
+    "count": 36369.0
+}, {
+    "month": "2013-01",
+    "location": "Fremont",
+    "count": 44884.0
+}, {
+    "month": "2013-02",
+    "location": "Fremont",
+    "count": 50027.0
+}, {
+    "month": "2013-03",
+    "location": "Fremont",
+    "count": 66089.0
+}, {
+    "month": "2013-04",
+    "location": "Fremont",
+    "count": 71998.0
+}, {
+    "month": "2013-05",
+    "location": "Fremont",
+    "count": 108574.0
+}, {
+    "month": "2013-06",
+    "location": "Fremont",
+    "count": 99280.0
+}, {
+    "month": "2013-07",
+    "location": "Fremont",
+    "count": 117974.0
+}, {
+    "month": "2013-08",
+    "location": "Fremont",
+    "count": 104549.0
+}, {
+    "month": "2013-09",
+    "location": "Fremont",
+    "count": 80729.0
+}, {
+    "month": "2013-10",
+    "location": "Fremont",
+    "count": 81352.0
+}, {
+    "month": "2013-11",
+    "location": "Fremont",
+    "count": 59270.0
+}, {
+    "month": "2013-12",
+    "location": "Fremont",
+    "count": 43553.0
+}, {
+    "month": "2014-01",
+    "location": "Broadway",
+    "count": 7345.0
+}, {
+    "month": "2014-01",
+    "location": "Burke_Gilman",
+    "count": 26986.0
+}, {
+    "month": "2014-01",
+    "location": "Fremont",
+    "count": 59873.0
+}, {
+    "month": "2014-02",
+    "location": "Broadway",
+    "count": 5578.0
+}, {
+    "month": "2014-02",
+    "location": "Burke_Gilman",
+    "count": 20167.0
+}, {
+    "month": "2014-02",
+    "location": "Fremont",
+    "count": 47025.0
+}, {
+    "month": "2014-03",
+    "location": "Broadway",
+    "count": 7413.0
+}, {
+    "month": "2014-03",
+    "location": "Burke_Gilman",
+    "count": 33882.0
+}, {
+    "month": "2014-03",
+    "location": "Fremont",
+    "count": 63494.0
+}, {
+    "month": "2014-04",
+    "location": "Broadway",
+    "count": 8432.0
+}, {
+    "month": "2014-04",
+    "location": "Burke_Gilman",
+    "count": 49443.0
+}, {
+    "month": "2014-04",
+    "location": "Fremont",
+    "count": 86855.0
+}, {
+    "month": "2014-05",
+    "location": "Broadway",
+    "count": 12691.0
+}, {
+    "month": "2014-05",
+    "location": "Burke_Gilman",
+    "count": 66288.0
+}, {
+    "month": "2014-05",
+    "location": "Fremont",
+    "count": 118644.0
+}, {
+    "month": "2014-06",
+    "location": "Broadway",
+    "count": 14778.0
+}, {
+    "month": "2014-06",
+    "location": "Burke_Gilman",
+    "count": 68683.0
+}, {
+    "month": "2014-06",
+    "location": "Fremont",
+    "count": 110907.0
+}, {
+    "month": "2014-07",
+    "location": "Broadway",
+    "count": 15637.0
+}, {
+    "month": "2014-07",
+    "location": "Burke_Gilman",
+    "count": 73645.0
+}, {
+    "month": "2014-07",
+    "location": "Fremont",
+    "count": 120669.0
+}, {
+    "month": "2014-08",
+    "location": "Broadway",
+    "count": 17389.0
+}, {
+    "month": "2014-08",
+    "location": "Burke_Gilman",
+    "count": 69247.0
+}, {
+    "month": "2014-08",
+    "location": "Fremont",
+    "count": 112490.0
+}, {
+    "month": "2014-09",
+    "location": "Broadway",
+    "count": 16328.0
+}, {
+    "month": "2014-09",
+    "location": "Burke_Gilman",
+    "count": 52920.0
+}, {
+    "month": "2014-09",
+    "location": "Fremont",
+    "count": 97558.0
+}, {
+    "month": "2014-10",
+    "location": "Broadway",
+    "count": 11425.0
+}, {
+    "month": "2014-10",
+    "location": "Burke_Gilman",
+    "count": 36336.0
+}, {
+    "month": "2014-10",
+    "location": "Fremont",
+    "count": 83184.0
+}, {
+    "month": "2014-11",
+    "location": "Broadway",
+    "count": 6015.0
+}, {
+    "month": "2014-11",
+    "location": "Burke_Gilman",
+    "count": 25455.0
+}, {
+    "month": "2014-11",
+    "location": "Fremont",
+    "count": 56990.0
+}, {
+    "month": "2014-12",
+    "location": "Broadway",
+    "count": 4324.0
+}, {
+    "month": "2014-12",
+    "location": "Burke_Gilman",
+    "count": 21643.0
+}, {
+    "month": "2014-12",
+    "location": "Fremont",
+    "count": 48507.0
+}, {
+    "month": "2015-01",
+    "location": "Broadway",
+    "count": 7048.0
+}, {
+    "month": "2015-01",
+    "location": "Burke_Gilman",
+    "count": 29846.0
+}, {
+    "month": "2015-01",
+    "location": "Fremont",
+    "count": 60630.0
+}, {
+    "month": "2015-02",
+    "location": "Broadway",
+    "count": 7124.0
+}, {
+    "month": "2015-02",
+    "location": "Burke_Gilman",
+    "count": 31226.0
+}, {
+    "month": "2015-02",
+    "location": "Fremont",
+    "count": 58659.0
+}, {
+    "month": "2015-03",
+    "location": "Broadway",
+    "count": 8256.0
+}, {
+    "month": "2015-03",
+    "location": "Burke_Gilman",
+    "count": 41412.0
+}, {
+    "month": "2015-03",
+    "location": "Fremont",
+    "count": 71144.0
+}, {
+    "month": "2015-04",
+    "location": "Broadway",
+    "count": 9045.0
+}, {
+    "month": "2015-04",
+    "location": "Burke_Gilman",
+    "count": 48913.0
+}, {
+    "month": "2015-04",
+    "location": "Fremont",
+    "count": 83697.0
+}, {
+    "month": "2015-05",
+    "location": "Broadway",
+    "count": 3590.0
+}, {
+    "month": "2015-05",
+    "location": "Burke_Gilman",
+    "count": 72109.0
+}, {
+    "month": "2015-05",
+    "location": "Fremont",
+    "count": 107775.0
+}, {
+    "month": "2015-06",
+    "location": "Broadway",
+    "count": 11962.0
+}, {
+    "month": "2015-06",
+    "location": "Burke_Gilman",
+    "count": 76424.0
+}, {
+    "month": "2015-06",
+    "location": "Fremont",
+    "count": 113717.0
+}, {
+    "month": "2015-07",
+    "location": "Broadway",
+    "count": 12235.0
+}, {
+    "month": "2015-07",
+    "location": "Burke_Gilman",
+    "count": 72346.0
+}, {
+    "month": "2015-07",
+    "location": "Fremont",
+    "count": 112780.0
+}, {
+    "month": "2015-08",
+    "location": "Broadway",
+    "count": 11139.0
+}, {
+    "month": "2015-08",
+    "location": "Burke_Gilman",
+    "count": 68635.0
+}, {
+    "month": "2015-08",
+    "location": "Fremont",
+    "count": 103351.0
+}, {
+    "month": "2015-09",
+    "location": "Broadway",
+    "count": 5525.0
+}, {
+    "month": "2015-09",
+    "location": "Burke_Gilman",
+    "count": 49548.0
+}, {
+    "month": "2015-09",
+    "location": "Fremont",
+    "count": 91140.0
+}, {
+    "month": "2015-10",
+    "location": "Broadway",
+    "count": 10584.0
+}, {
+    "month": "2015-10",
+    "location": "Burke_Gilman",
+    "count": 38271.0
+}, {
+    "month": "2015-10",
+    "location": "Fremont",
+    "count": 83003.0
+}, {
+    "month": "2015-11",
+    "location": "Broadway",
+    "count": 7424.0
+}, {
+    "month": "2015-11",
+    "location": "Burke_Gilman",
+    "count": 12017.0
+}, {
+    "month": "2015-11",
+    "location": "Fremont",
+    "count": 56668.0
+}, {
+    "month": "2015-12",
+    "location": "Broadway",
+    "count": 5663.0
+}, {
+    "month": "2015-12",
+    "location": "Burke_Gilman",
+    "count": 13408.0
+}, {
+    "month": "2015-12",
+    "location": "Fremont",
+    "count": 43992.0
+}, {
+    "month": "2016-01",
+    "location": "Broadway",
+    "count": 6670.0
+}, {
+    "month": "2016-01",
+    "location": "Burke_Gilman",
+    "count": 22789.0
+}, {
+    "month": "2016-01",
+    "location": "Fremont",
+    "count": 51733.0
+}, {
+    "month": "2016-02",
+    "location": "Broadway",
+    "count": 7426.0
+}, {
+    "month": "2016-02",
+    "location": "Burke_Gilman",
+    "count": 28847.0
+}, {
+    "month": "2016-02",
+    "location": "Fremont",
+    "count": 60381.0
+}, {
+    "month": "2016-03",
+    "location": "Broadway",
+    "count": 8374.0
+}, {
+    "month": "2016-03",
+    "location": "Burke_Gilman",
+    "count": 35572.0
+}, {
+    "month": "2016-03",
+    "location": "Fremont",
+    "count": 69804.0
+}, {
+    "month": "2016-04",
+    "location": "Broadway",
+    "count": 11116.0
+}, {
+    "month": "2016-04",
+    "location": "Burke_Gilman",
+    "count": 57625.0
+}, {
+    "month": "2016-04",
+    "location": "Fremont",
+    "count": 93639.0
+}, {
+    "month": "2016-05",
+    "location": "Broadway",
+    "count": 11943.0
+}, {
+    "month": "2016-05",
+    "location": "Burke_Gilman",
+    "count": 68915.0
+}, {
+    "month": "2016-05",
+    "location": "Fremont",
+    "count": 114159.0
+}, {
+    "month": "2016-06",
+    "location": "Broadway",
+    "count": 11611.0
+}, {
+    "month": "2016-06",
+    "location": "Burke_Gilman",
+    "count": 75566.0
+}, {
+    "month": "2016-06",
+    "location": "Fremont",
+    "count": 107617.0
+}, {
+    "month": "2016-07",
+    "location": "Broadway",
+    "count": 11844.0
+}, {
+    "month": "2016-07",
+    "location": "Burke_Gilman",
+    "count": 77092.0
+}, {
+    "month": "2016-07",
+    "location": "Fremont",
+    "count": 105683.0
+}, {
+    "month": "2016-08",
+    "location": "Broadway",
+    "count": 11804.0
+}, {
+    "month": "2016-08",
+    "location": "Burke_Gilman",
+    "count": 73716.0
+}, {
+    "month": "2016-08",
+    "location": "Fremont",
+    "count": 112380.0
+}, {
+    "month": "2016-09",
+    "location": "Broadway",
+    "count": 10716.0
+}, {
+    "month": "2016-09",
+    "location": "Burke_Gilman",
+    "count": 48909.0
+}, {
+    "month": "2016-09",
+    "location": "Fremont",
+    "count": 94157.0
+}, {
+    "month": "2016-10",
+    "location": "Broadway",
+    "count": 9175.0
+}, {
+    "month": "2016-10",
+    "location": "Burke_Gilman",
+    "count": 31653.0
+}, {
+    "month": "2016-10",
+    "location": "Fremont",
+    "count": 69883.0
+}, {
+    "month": "2016-11",
+    "location": "Broadway",
+    "count": 8523.0
+}, {
+    "month": "2016-11",
+    "location": "Burke_Gilman",
+    "count": 27350.0
+}, {
+    "month": "2016-11",
+    "location": "Fremont",
+    "count": 64097.0
+}, {
+    "month": "2016-12",
+    "location": "Broadway",
+    "count": 5197.0
+}, {
+    "month": "2016-12",
+    "location": "Burke_Gilman",
+    "count": 17320.0
+}, {
+    "month": "2016-12",
+    "location": "Fremont",
+    "count": 38937.0
+}, {
+    "month": "2017-01",
+    "location": "Broadway",
+    "count": 6505.0
+}, {
+    "month": "2017-01",
+    "location": "Burke_Gilman",
+    "count": 21947.0
+}, {
+    "month": "2017-01",
+    "location": "Fremont",
+    "count": 49805.0
+}, {
+    "month": "2017-02",
+    "location": "Broadway",
+    "count": 5742.0
+}, {
+    "month": "2017-02",
+    "location": "Burke_Gilman",
+    "count": 19442.0
+}, {
+    "month": "2017-02",
+    "location": "Fremont",
+    "count": 42001.0
+}, {
+    "month": "2017-03",
+    "location": "Broadway",
+    "count": 7091.0
+}, {
+    "month": "2017-03",
+    "location": "Burke_Gilman",
+    "count": 28410.0
+}, {
+    "month": "2017-03",
+    "location": "Fremont",
+    "count": 58747.0
+}, {
+    "month": "2017-04",
+    "location": "Broadway",
+    "count": 7957.0
+}, {
+    "month": "2017-04",
+    "location": "Burke_Gilman",
+    "count": 42843.0
+}, {
+    "month": "2017-04",
+    "location": "Fremont",
+    "count": 68413.0
+}, {
+    "month": "2017-05",
+    "location": "Broadway",
+    "count": 10111.0
+}, {
+    "month": "2017-05",
+    "location": "Burke_Gilman",
+    "count": 64452.0
+}, {
+    "month": "2017-05",
+    "location": "Fremont",
+    "count": 109089.0
+}, {
+    "month": "2017-06",
+    "location": "Broadway",
+    "count": 10507.0
+}, {
+    "month": "2017-06",
+    "location": "Burke_Gilman",
+    "count": 64399.0
+}, {
+    "month": "2017-06",
+    "location": "Fremont",
+    "count": 107801.0
+}, {
+    "month": "2017-07",
+    "location": "Broadway",
+    "count": 7844.0
+}, {
+    "month": "2017-07",
+    "location": "Burke_Gilman",
+    "count": 79351.0
+}, {
+    "month": "2017-07",
+    "location": "Fremont",
+    "count": 118904.0
+}, {
+    "month": "2017-08",
+    "location": "Broadway",
+    "count": 11798.0
+}, {
+    "month": "2017-08",
+    "location": "Burke_Gilman",
+    "count": 63174.0
+}, {
+    "month": "2017-08",
+    "location": "Fremont",
+    "count": 120188.0
+}, {
+    "month": "2017-09",
+    "location": "Broadway",
+    "count": 9396.0
+}, {
+    "month": "2017-09",
+    "location": "Burke_Gilman",
+    "count": 102594.0
+}, {
+    "month": "2017-09",
+    "location": "Fremont",
+    "count": 96498.0
+}, {
+    "month": "2017-10",
+    "location": "Broadway",
+    "count": 10615.0
+}, {
+    "month": "2017-10",
+    "location": "Burke_Gilman",
+    "count": 88694.0
+}, {
+    "month": "2017-10",
+    "location": "Fremont",
+    "count": 88143.0
+}, {
+    "month": "2017-11",
+    "location": "Broadway",
+    "count": 7452.0
+}, {
+    "month": "2017-11",
+    "location": "Burke_Gilman",
+    "count": 92278.0
+}, {
+    "month": "2017-11",
+    "location": "Fremont",
+    "count": 57684.0
+}, {
+    "month": "2017-12",
+    "location": "Broadway",
+    "count": 6317.0
+}, {
+    "month": "2017-12",
+    "location": "Burke_Gilman",
+    "count": 16634.0
+}, {
+    "month": "2017-12",
+    "location": "Fremont",
+    "count": 45862.0
+}, {
+    "month": "2018-01",
+    "location": "Broadway",
+    "count": 7170.0
+}, {
+    "month": "2018-01",
+    "location": "Burke_Gilman",
+    "count": 22444.0
+}, {
+    "month": "2018-01",
+    "location": "Fremont",
+    "count": 58591.0
+}, {
+    "month": "2018-02",
+    "location": "Broadway",
+    "count": 6672.0
+}, {
+    "month": "2018-02",
+    "location": "Burke_Gilman",
+    "count": 20689.0
+}, {
+    "month": "2018-02",
+    "location": "Fremont",
+    "count": 50677.0
+}, {
+    "month": "2018-03",
+    "location": "Broadway",
+    "count": 1847.0
+}, {
+    "month": "2018-03",
+    "location": "Burke_Gilman",
+    "count": 37149.0
+}, {
+    "month": "2018-03",
+    "location": "Fremont",
+    "count": 77284.0
+}, {
+    "month": "2018-04",
+    "location": "Broadway",
+    "count": 8939.0
+}, {
+    "month": "2018-04",
+    "location": "Burke_Gilman",
+    "count": 38248.0
+}, {
+    "month": "2018-04",
+    "location": "Fremont",
+    "count": 79947.0
+}, {
+    "month": "2018-05",
+    "location": "Broadway",
+    "count": 12622.0
+}, {
+    "month": "2018-05",
+    "location": "Burke_Gilman",
+    "count": 617409.0
+}, {
+    "month": "2018-05",
+    "location": "Fremont",
+    "count": 129813.0
+}, {
+    "month": "2018-06",
+    "location": "Broadway",
+    "count": 11625.0
+}, {
+    "month": "2018-06",
+    "location": "Burke_Gilman",
+    "count": 0.0
+}, {
+    "month": "2018-06",
+    "location": "Fremont",
+    "count": 113145.0
+}, {
+    "month": "2018-07",
+    "location": "Broadway",
+    "count": 10205.0
+}, {
+    "month": "2018-07",
+    "location": "Burke_Gilman",
+    "count": 0.0
+}, {
+    "month": "2018-07",
+    "location": "Fremont",
+    "count": 128018.0
+}, {
+    "month": "2018-08",
+    "location": "Broadway",
+    "count": 11896.0
+}, {
+    "month": "2018-08",
+    "location": "Burke_Gilman",
+    "count": 0.0
+}, {
+    "month": "2018-08",
+    "location": "Fremont",
+    "count": 111809.0
+}, {
+    "month": "2018-09",
+    "location": "Broadway",
+    "count": 10978.0
+}, {
+    "month": "2018-09",
+    "location": "Burke_Gilman",
+    "count": 35118.0
+}, {
+    "month": "2018-09",
+    "location": "Fremont",
+    "count": 96242.0
+}, {
+    "month": "2018-10",
+    "location": "Broadway",
+    "count": 10945.0
+}, {
+    "month": "2018-10",
+    "location": "Burke_Gilman",
+    "count": 35238.0
+}, {
+    "month": "2018-10",
+    "location": "Fremont",
+    "count": 90982.0
+}, {
+    "month": "2018-11",
+    "location": "Broadway",
+    "count": 8749.0
+}, {
+    "month": "2018-11",
+    "location": "Burke_Gilman",
+    "count": 29061.0
+}, {
+    "month": "2018-11",
+    "location": "Fremont",
+    "count": 68431.0
+}, {
+    "month": "2018-12",
+    "location": "Broadway",
+    "count": 6631.0
+}, {
+    "month": "2018-12",
+    "location": "Burke_Gilman",
+    "count": 20311.0
+}, {
+    "month": "2018-12",
+    "location": "Fremont",
+    "count": 46941.0
+}, {
+    "month": "2019-01",
+    "location": "Broadway",
+    "count": 9341.0
+}, {
+    "month": "2019-01",
+    "location": "Burke_Gilman",
+    "count": 28687.0
+}, {
+    "month": "2019-01",
+    "location": "Fremont",
+    "count": 72883.0
+}, {
+    "month": "2019-02",
+    "location": "Burke_Gilman",
+    "count": 12917.0
+}, {
+    "month": "2019-02",
+    "location": "Fremont",
+    "count": 36099.0
+}, {
+    "month": "2019-03",
+    "location": "Broadway",
+    "count": 8195.0
+}, {
+    "month": "2019-03",
+    "location": "Burke_Gilman",
+    "count": 44293.0
+}, {
+    "month": "2019-03",
+    "location": "Fremont",
+    "count": 85457.0
+}, {
+    "month": "2019-04",
+    "location": "Broadway",
+    "count": 10086.0
+}, {
+    "month": "2019-04",
+    "location": "Burke_Gilman",
+    "count": 40353.0
+}, {
+    "month": "2019-04",
+    "location": "Fremont",
+    "count": 87932.0
+}, {
+    "month": "2019-05",
+    "location": "Broadway",
+    "count": 12849.0
+}, {
+    "month": "2019-05",
+    "location": "Burke_Gilman",
+    "count": 61586.0
+}, {
+    "month": "2019-05",
+    "location": "Fremont",
+    "count": 129123.0
+}, {
+    "month": "2019-06",
+    "location": "Broadway",
+    "count": 10598.0
+}, {
+    "month": "2019-06",
+    "location": "Burke_Gilman",
+    "count": 63088.0
+}, {
+    "month": "2019-06",
+    "location": "Fremont",
+    "count": 132512.0
+}, {
+    "month": "2019-07",
+    "location": "Burke_Gilman",
+    "count": 63743.0
+}, {
+    "month": "2019-07",
+    "location": "Fremont",
+    "count": 137714.0
+}, {
+    "month": "2019-08",
+    "location": "Broadway",
+    "count": 9659.0
+}, {
+    "month": "2019-08",
+    "location": "Burke_Gilman",
+    "count": 64550.0
+}, {
+    "month": "2019-08",
+    "location": "Fremont",
+    "count": 142414.0
+}, {
+    "month": "2019-09",
+    "location": "Broadway",
+    "count": 13261.0
+}, {
+    "month": "2019-09",
+    "location": "Burke_Gilman",
+    "count": 43789.0
+}, {
+    "month": "2019-09",
+    "location": "Fremont",
+    "count": 112174.0
+}, {
+    "month": "2019-10",
+    "location": "Broadway",
+    "count": 13440.0
+}, {
+    "month": "2019-10",
+    "location": "Burke_Gilman",
+    "count": 34778.0
+}, {
+    "month": "2019-10",
+    "location": "Fremont",
+    "count": 104498.0
+}, {
+    "month": "2019-11",
+    "location": "Broadway",
+    "count": 10973.0
+}, {
+    "month": "2019-11",
+    "location": "Burke_Gilman",
+    "count": 29779.0
+}, {
+    "month": "2019-11",
+    "location": "Fremont",
+    "count": 84963.0
+}, {
+    "month": "2019-12",
+    "location": "Broadway",
+    "count": 8503.0
+}, {
+    "month": "2019-12",
+    "location": "Burke_Gilman",
+    "count": 24169.0
+}, {
+    "month": "2019-12",
+    "location": "Fremont",
+    "count": 61377.0
+}, {
+    "month": "2020-01",
+    "location": "Broadway",
+    "count": 7878.0
+}, {
+    "month": "2020-01",
+    "location": "Burke_Gilman",
+    "count": 20841.0
+}, {
+    "month": "2020-01",
+    "location": "Fremont",
+    "count": 58986.0
+}, {
+    "month": "2020-02",
+    "location": "Broadway",
+    "count": 8628.0
+}, {
+    "month": "2020-02",
+    "location": "Burke_Gilman",
+    "count": 27932.0
+}, {
+    "month": "2020-02",
+    "location": "Fremont",
+    "count": 72457.0
+}, {
+    "month": "2020-03",
+    "location": "Broadway",
+    "count": 8380.0
+}, {
+    "month": "2020-03",
+    "location": "Burke_Gilman",
+    "count": 47351.0
+}, {
+    "month": "2020-03",
+    "location": "Fremont",
+    "count": 57897.0
+}, {
+    "month": "2020-04",
+    "location": "Broadway",
+    "count": 8052.0
+}, {
+    "month": "2020-04",
+    "location": "Burke_Gilman",
+    "count": 67349.0
+}, {
+    "month": "2020-04",
+    "location": "Fremont",
+    "count": 65375.0
+}, {
+    "month": "2020-05",
+    "location": "Broadway",
+    "count": 7339.0
+}, {
+    "month": "2020-05",
+    "location": "Burke_Gilman",
+    "count": 70636.0
+}, {
+    "month": "2020-05",
+    "location": "Fremont",
+    "count": 72668.0
+}, {
+    "month": "2020-06",
+    "location": "Broadway",
+    "count": 184.0
+}, {
+    "month": "2020-06",
+    "location": "Burke_Gilman",
+    "count": 66265.0
+}, {
+    "month": "2020-06",
+    "location": "Fremont",
+    "count": 75787.0
+}, {
+    "month": "2020-07",
+    "location": "Burke_Gilman",
+    "count": 75972.0
+}, {
+    "month": "2020-07",
+    "location": "Fremont",
+    "count": 88177.0
+}, {
+    "month": "2020-08",
+    "location": "Burke_Gilman",
+    "count": 72625.0
+}, {
+    "month": "2020-08",
+    "location": "Fremont",
+    "count": 88351.0
+}, {
+    "month": "2020-09",
+    "location": "Burke_Gilman",
+    "count": 88578.0
+}, {
+    "month": "2020-09",
+    "location": "Fremont",
+    "count": 58143.0
+}, {
+    "month": "2020-10",
+    "location": "Burke_Gilman",
+    "count": 25446.0
+}, {
+    "month": "2020-10",
+    "location": "Fremont",
+    "count": 58751.0
+}, {
+    "month": "2020-11",
+    "location": "Fremont",
+    "count": 39924.0
+}, {
+    "month": "2020-12",
+    "location": "Broadway",
+    "count": 1295.0
+}, {
+    "month": "2020-12",
+    "location": "Fremont",
+    "count": 36077.0
+}, {
+    "month": "2021-01",
+    "location": "Broadway",
+    "count": 4315.0
+}, {
+    "month": "2021-01",
+    "location": "Fremont",
+    "count": 35616.0
+}, {
+    "month": "2021-02",
+    "location": "Broadway",
+    "count": 1736.0
+}, {
+    "month": "2021-02",
+    "location": "Fremont",
+    "count": 29479.0
+}, {
+    "month": "2021-03",
+    "location": "Broadway",
+    "count": 2703.0
+}, {
+    "month": "2021-03",
+    "location": "Fremont",
+    "count": 50200.0
+}, {
+    "month": "2021-04",
+    "location": "Broadway",
+    "count": 6635.0
+}, {
+    "month": "2021-04",
+    "location": "Fremont",
+    "count": 69345.0
+}, {
+    "month": "2021-05",
+    "location": "Broadway",
+    "count": 7165.0
+}, {
+    "month": "2021-05",
+    "location": "Fremont",
+    "count": 73033.0
+}, {
+    "month": "2021-06",
+    "location": "Broadway",
+    "count": 5869.0
+}, {
+    "month": "2021-06",
+    "location": "Fremont",
+    "count": 77473.0
+}, {
+    "month": "2021-07",
+    "location": "Broadway",
+    "count": 5384.0
+}, {
+    "month": "2021-07",
+    "location": "Fremont",
+    "count": 93994.0
+}, {
+    "month": "2021-08",
+    "location": "Broadway",
+    "count": 5702.0
+}, {
+    "month": "2021-08",
+    "location": "Fremont",
+    "count": 86354.0
+}, {
+    "month": "2021-09",
+    "location": "Broadway",
+    "count": 9898.0
+}, {
+    "month": "2021-09",
+    "location": "Fremont",
+    "count": 74366.0
+}, {
+    "month": "2021-10",
+    "location": "Broadway",
+    "count": 8180.0
+}, {
+    "month": "2021-10",
+    "location": "Fremont",
+    "count": 58181.0
+}, {
+    "month": "2021-11",
+    "location": "Burke_Gilman",
+    "count": 12381.0
+}, {
+    "month": "2021-11",
+    "location": "Fremont",
+    "count": 40130.0
+}, {
+    "month": "2021-12",
+    "location": "Burke_Gilman",
+    "count": 45668.0
+}, {
+    "month": "2021-12",
+    "location": "Fremont",
+    "count": 27459.0
+}, {
+    "month": "2022-01",
+    "location": "Burke_Gilman",
+    "count": 13275.0
+}, {
+    "month": "2022-01",
+    "location": "Fremont",
+    "count": 34316.0
+}, {
+    "month": "2022-02",
+    "location": "Burke_Gilman",
+    "count": 14669.0
+}, {
+    "month": "2022-02",
+    "location": "Fremont",
+    "count": 38576.0
+}, {
+    "month": "2022-03",
+    "location": "Burke_Gilman",
+    "count": 21018.0
+}, {
+    "month": "2022-03",
+    "location": "Fremont",
+    "count": 56375.0
+}, {
+    "month": "2022-04",
+    "location": "Burke_Gilman",
+    "count": 24890.0
+}, {
+    "month": "2022-04",
+    "location": "Fremont",
+    "count": 63188.0
+}, {
+    "month": "2022-05",
+    "location": "Burke_Gilman",
+    "count": 30868.0
+}, {
+    "month": "2022-05",
+    "location": "Fremont",
+    "count": 73495.0
+}, {
+    "month": "2022-06",
+    "location": "Burke_Gilman",
+    "count": 37188.0
+}, {
+    "month": "2022-06",
+    "location": "Fremont",
+    "count": 85259.0
+}, {
+    "month": "2022-07",
+    "location": "Burke_Gilman",
+    "count": 47379.0
+}, {
+    "month": "2022-07",
+    "location": "Fremont",
+    "count": 99891.0
+}, {
+    "month": "2022-08",
+    "location": "Burke_Gilman",
+    "count": 43935.0
+}, {
+    "month": "2022-08",
+    "location": "Fremont",
+    "count": 104137.0
+}, {
+    "month": "2022-09",
+    "location": "Burke_Gilman",
+    "count": 32754.0
+}, {
+    "month": "2022-09",
+    "location": "Fremont",
+    "count": 90964.0
+}, {
+    "month": "2022-10",
+    "location": "Fremont",
+    "count": 74451.0
+}, {
+    "month": "2022-11",
+    "location": "Fremont",
+    "count": 49895.0
+}, {
+    "month": "2022-12",
+    "location": "Fremont",
+    "count": 26990.0
+}, {
+    "month": "2023-01",
+    "location": "Fremont",
+    "count": 47629.0
+}, {
+    "month": "2023-02",
+    "location": "Fremont",
+    "count": 40366.0
+}]
