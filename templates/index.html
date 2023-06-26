@@ -5,12 +5,24 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Bellybutton Biodiversity</title>
+  <title>Bike and Foot Traffic at Popular Tourist Spots throughout Seattle</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
   <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
   <script src="https://unpkg.com/leaflet.heat@0.2.0/dist/leaflet-heat.js"></script>
   <link rel="stylesheet" href="../static/css/style.css">
+  <style>
+    #monthDropdown {
+      width: 100%;
+      height: 35px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    .jumbotron {
+      background-color: #f8f9fa;
+      color: #3c3c3c;
+    }
+  </style>
 </head>
 
 <body>
@@ -18,16 +30,16 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12 jumbotron text-center">
-        <h1>Seattle Bike Traffic Dashboard</h1>
-        <p>Use the interactive charts below to explore the dataset</p>
+        <h1>Bike and Foot Traffic at Popular Tourist Spots throughout Seattle</h1>
+        <p>Use the interactive map below to explore the dataset</p>
       </div>
     </div>
     <div class="row">
-      <div class="col-md-2">
+      <div class="col-md-12">
         <div class="well">
-          <h5>Traffic Changes</h5>
+          <h5>Select Month</h5>
           <select id="monthDropdown">
-            <option value="">--Month</option>"
+            <option value="">--Select Month--</option>
           </select>
         </div>
         <div class="panel panel-primary">
@@ -64,10 +76,8 @@
   <script src="https://d3js.org/d3.v5.min.js"></script>
  
   <script src="../static/js/plotly.min.js"></script>
-  <script src="../static/js/whateves.js"></script>
-  
-  
+  <script src="../static/js/maps.js"></script>
+
 </body>
 
 </html>
-
