@@ -33,7 +33,7 @@ function updateVisuals() {
   if (location == 'Broadway') {
     // Broadway
     jsonUrl = "/api/broadway_year";
-    d3.json(url)
+    d3.json(jsonUrl)
       .then(function(data) {
         data.forEach((elem) => {
           console.log({elem})
@@ -52,7 +52,7 @@ function updateVisuals() {
   else if (location == 'Fremont') {
     // Fremont
     jsonUrl = "/api/fremont_year";
-    d3.json(url)
+    d3.json(jsonUrl)
       .then(function(data) {
         data.forEach((elem) => {
           console.log({elem});
@@ -71,7 +71,7 @@ function updateVisuals() {
   else if (location == 'Burke Gilman') {
     // Burke Gilman
     jsonUrl = "/api/burkegilman_year";
-    d3.json(url)
+    d3.json(jsonUrl)
       .then(function(data) {
         data.forEach((elem) => {
           console.log({elem});
