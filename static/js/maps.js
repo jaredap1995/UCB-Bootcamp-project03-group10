@@ -91,7 +91,7 @@ function updateMarkers() {
 
     let color;
     if (selectedTime === 'nighttime') {
-      color = `rgb(255, 255, 255)`; // White
+      color = `rgb(0, 0, 255)`; // blue
     } else {
       color = `rgb(${255 * normalizedTraffic + 300}, 0, 0)`;
     }
