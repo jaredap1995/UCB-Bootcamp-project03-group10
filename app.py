@@ -5,6 +5,7 @@ from flask import Flask, jsonify, render_template
 import psycopg2 
 from dotenv import load_dotenv
 import os
+import json
 
 app = Flask(__name__)
 
@@ -35,11 +36,14 @@ cursor = connection.cursor()
 def welcome():
     
 
+    #data_list = json.load(open('data.json'))
+    #data_json = json.dumps(data_list)
+    #return render_template("index.html", data_json=data_json)
     return render_template("index.html")
 
 
-@app.route("/api/alldata")
-def alldata():
+#@app.route("/api/alldata")
+#def alldata():
     query = '''Select date_part('year', date) as year, SUM(total), SUM(east), SUM (west)
     from fremont
     group by year'''
@@ -61,8 +65,8 @@ def alldata():
     return jsonify(bikes_list)
 
 
-@app.route("/api/broadway")
-def alldata_broadway():
+#@app.route("/api/broadway")
+#def alldata_broadway():
     query = '''Select date_part('year', date) as year, SUM(total), SUM(north_bike), SUM (south_bike)
     from broadway
     group by year'''
@@ -85,7 +89,7 @@ def alldata_broadway():
 
 @app.route("/api/burkegilman")
 def burke_gilman():
-    query = '''Select date_part('year', date) as year, SUM(total_ped_and_bike), SUM(pedestrian_south), SUM(pedestrian_north), SUM (bike_north), SUM(bike_south)
+    query = '''Select date_part('year', date) as year, SUM(total_ped_and_bike_burke), SUM(pedestrian_south_burke), SUM(pedestrian_north_burke), SUM (bike_north_burke), SUM(bike_south_burke)
     from burke_gilman
     group by year'''
     cursor.execute(query)
@@ -94,15 +98,17 @@ def burke_gilman():
     print(first)
 
     bikes_ped_list = []
-    for date, total_ped_and_bike, pedestrian_south, pedestrian_north,bike_north, bike_south in first:
+    for date, total_ped_and_bike_burke, pedestrian_south_burke, pedestrian_north_burke,bike_north_burke, bike_south_burke in first:
         dict_bikes = {}
         dict_bikes['year'] = date
-        dict_bikes['total_ped_and_bike'] = total_ped_and_bike
-        dict_bikes['pedestrian_south'] = pedestrian_south
-        dict_bikes['pedestrian_north'] = pedestrian_north
-        dict_bikes['bike_north'] = bike_north
-        dict_bikes['bike_south'] = bike_south
+        dict_bikes['total_ped_and_bike_burke'] = total_ped_and_bike_burke
+        dict_bikes['pedestrian_south_burke'] = pedestrian_south_burke
+        dict_bikes['pedestrian_north_burke'] = pedestrian_north_burke
+        dict_bikes['bike_north_burke'] = bike_north_burke
+        dict_bikes['bike_south_burke'] = bike_south_burke
         bikes_ped_list.append(dict_bikes)
+
+
 
 
     return jsonify(bikes_ped_list)
@@ -111,3 +117,6 @@ def burke_gilman():
 
 if __name__ == '__main__':
     app.run(debug=True)
+
+cursor.close()  # Close the cursor
+connection.close()  # Close the connection
