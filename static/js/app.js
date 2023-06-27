@@ -1,134 +1,64 @@
+// using API /api/burkegilman
 
-//the second d3.json(url).then() block is chained to the first one using the return statement. 
-//This ensures that the second API call is made only after the first one is completed successfully. 
-//By chaining the promises, the code will fetch data for both charts and plot them accordingly.
+function inint(){
 
+    // select dropdown 
+    let dropDown = d3.select("#selectPB")
 
+    //get years for dropdown menu
+    d3.json("/api/burkegilman").then((data) => {
+        console.log(data);
 
+        //let years = data.year;
+        let years = data.map((elem) => elem.year);
 
-let url_2 = "/api/broadway";
-let url = "/api/alldata";
-let url_3 = "/api/burkegilman";
+        //add dates as an option to dropdown
 
-d3.json(url_2)
-  .then((data_b) => {
-    let year_list_b = [];
-    let total_list_b = [];
+        for (i = 0; i<years.length; i++){
+            dropDown.append("option").text(years[i]).property("value",years[i])
+        }
 
-    data_b.forEach((elem) => {
-      console.log({ elem });
-      year_list_b.push(elem.year);
-      total_list_b.push(elem.total);
+        displayPieChart(years[0])
+
     });
 
-    var bdata = [
-      {
-        x: year_list_b,
-        y: total_list_b,
-        type: 'bar'
-      }
-    ];
+}
 
-    Plotly.newPlot('barb', bdata);
 
-    return d3.json(url);
-  })
-  .then((data) => {
-    let year_list = [];
-    let total_list = [];
+function optionChanged(yearNum){
+    displayPieChart(yearNum)
+}
 
-    data.forEach((element) => {
-      console.log({ element });
-      year_list.push(element.year);
-      total_list.push(element.all);
+function displayPieChart(yearNum){
+    d3.json("/api/burkegilman").then((data) => {
+        console.log('data:', data)
+        //year in db is a number yearNum is a string in JS
+        let selectedYear = data.filter((elem) => elem.year === Number(yearNum))[0];
+        console.log('selected year::::::',selectedYear)
+        
+        let bike_north = selectedYear.bike_north_burke;
+        let bike_south = selectedYear.bike_south_burke;
+        let pedestrian_north = selectedYear.pedestrian_north_burke;
+        let pedestrian_south = selectedYear.pedestrian_south_burke;
+
+        var data = [{
+
+            values: [bike_north, bike_south, pedestrian_north, pedestrian_south],
+            labels: ["Bike North", "Bike South", "Pedestrian North", "Pedestrian South"],
+            type: 'pie'
+        }];
+    
+        var layout = {
+            title: "Burke Gilman Bicycle and Pedestrian",
+            height: 400,
+            width: 500
+        };
+    
+        Plotly.newPlot('pie', data, layout);
     });
 
-    var bardata = [
-      {
-        x: year_list,
-        y: total_list,
-        type: 'bar'
-      }
-    ];
 
-    Plotly.newPlot('bar', bardata);
-
-    return d3.json(url_3);
-  })
-  .then((data_bg) => {
-    let year_list_bg = [];
-    let total_list_bg = [];
-
-    data_bg.forEach((ele) => {
-      console.log({ ele });
-      year_list_bg.push(ele.year);
-      total_list_bg.push(ele.total_ped_and_bike);
-    });
-
-    var bgdata = [
-      {
-        x: year_list_bg,
-        y: total_list_bg,
-        type: 'bar'
-      }
-    ];
-
-    Plotly.newPlot('barbg', bgdata);
-  })
-  .catch((error) => {
-    console.log('Error:', error);
-  });
-
-  var map = L.map('mapid').setView([47.6062, -122.3321], 13);
-
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 19,
-}).addTo(map);
-
-// Mock data for illustrative purposes
-var heatArray = [
-  [47.6062, -122.3321, 0.5], // Seattle location with 0.5 traffic intensity
-  [47.6097, -122.3331, 0.8], // Another location with 0.8 traffic intensity
-];
-
-L.heatLayer(heatArray).addTo(map);
+    };
 
 
-
-
-  
-  d3.json("/api/burkegilman").then((data) => {
-      let year_list = [];
-      let pedestrian_south =[];
-      let pedestrian_north =[];
-      let bike_north =[];
-      let bike_south =[];
-
-  
-      data.forEach((element) => {
-        console.log({element});
-        year_list.push(element.year);
-        total_list.push(element.pedestrian_south);
-        total_list.push(element.pedestrian_north)
-        total_list.push(element.bike_north)
-        total_list.push(element.bike_south)
-      });
-
-  var data = [{
-      values: [bike_north[0], bike_south[0], pedestrian_north[0], pedestrian_south[0]],
-      labels: ["Bike North", "Bike South", "Pedestrian North", "Pedestrian South"],
-      type: 'pie'
-  }];
-  
-  var layout = {
-      height: 400,
-      width: 500
-  };
-  
-  Plotly.newPlot('pie', data, layout);
- }
-  )
-  
-
-
-  
+inint()
