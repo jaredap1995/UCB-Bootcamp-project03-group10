@@ -3,6 +3,7 @@ window.Apex = {
     enabled: false
   }
 };
+
 var chartBarLeft = []
 var optionsBarLeft = []
 var optionsBarRight = []
@@ -10,7 +11,6 @@ var chartBarRight = []
 
 var totalLayout = []
 var totalChartData = []
-
 var trace1 = []
 
 function init(){
@@ -108,7 +108,6 @@ function init(){
   totalChartData = [{}]
   Plotly.newPlot("barbg", totalChartData, totalLayout);
 };
-
 
 d3.selectAll('#selLocation').on("change", updateVisuals);
 
