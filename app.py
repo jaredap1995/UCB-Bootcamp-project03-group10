@@ -44,77 +44,6 @@ def welcome():
     return render_template("index.html")
 
 
-#@app.route("/api/alldata")
-#def alldata():
-    query = '''Select date_part('year', date) as year, SUM(total), SUM(east), SUM (west)
-    from fremont
-    group by year'''
-    cursor.execute(query)
-
-    first = cursor.fetchall()
-    print(first)
-
-    bikes_list = []
-    for date, all, east, west in first:
-        dict_bikes = {}
-        dict_bikes['year'] = date
-        dict_bikes['all'] = all
-        dict_bikes['east'] = east
-        dict_bikes['west'] = west
-        bikes_list.append(dict_bikes)
-
-
-    return jsonify(bikes_list)
-
-
-#@app.route("/api/broadway")
-#def alldata_broadway():
-    query = '''Select date_part('year', date) as year, SUM(total), SUM(north_bike), SUM (south_bike)
-    from broadway
-    group by year'''
-    cursor.execute(query)
-
-    first = cursor.fetchall()
-    print(first)
-
-    bikes_list = []
-    for date, total, north_bike, south_bike in first:
-        dict_bikes = {}
-        dict_bikes['year'] = date
-        dict_bikes['total'] = total
-        dict_bikes['north_bike'] = north_bike
-        dict_bikes['south_bike'] = south_bike
-        bikes_list.append(dict_bikes)
-
-
-    return jsonify(bikes_list)
-
-@app.route("/api/burkegilman")
-def burke_gilman():
-    query = '''Select date_part('year', date) as year, SUM(total_ped_and_bike_burke), SUM(pedestrian_south_burke), SUM(pedestrian_north_burke), SUM (bike_north_burke), SUM(bike_south_burke)
-    from burke_gilman
-    group by year'''
-    cursor.execute(query)
-
-    first = cursor.fetchall()
-    print(first)
-
-    bikes_ped_list = []
-    for date, total_ped_and_bike_burke, pedestrian_south_burke, pedestrian_north_burke,bike_north_burke, bike_south_burke in first:
-        dict_bikes = {}
-        dict_bikes['year'] = date
-        dict_bikes['total_ped_and_bike_burke'] = total_ped_and_bike_burke
-        dict_bikes['pedestrian_south_burke'] = pedestrian_south_burke
-        dict_bikes['pedestrian_north_burke'] = pedestrian_north_burke
-        dict_bikes['bike_north_burke'] = bike_north_burke
-        dict_bikes['bike_south_burke'] = bike_south_burke
-        bikes_ped_list.append(dict_bikes)
-
-
-
-
-    return jsonify(bikes_ped_list)
-
 @app.route("/api/heatmap_data")
 def heatmap_data():
 
@@ -158,6 +87,24 @@ def heatmap_data():
     # Create the 'month' column and aggregate counts by month and location
     df_combined['month'] = df_combined['date'].dt.to_period('M')
     df_final = df_combined.groupby(['month', 'location']).sum().reset_index()
+
+
+    #Splitting daytime and nightitme
+    df_combined['date'] = pd.to_datetime(df_combined['date'])
+    df_combined['date_date'] = df_combined['date'].dt.date
+    df_combined['date_time'] = df_combined['date'].dt.time
+
+    df_combined['daytime'] = df_combined['date_time'].apply(lambda x: 6 <= x.hour <= 18)
+    df_combined['nighttime'] = ~df_combined['daytime']
+
+    df_combined=df_combined.drop(columns=['date_time', 'date_date'])
+    df_combined['daytime'] = df_combined['daytime'] * df_combined['count']
+    df_combined['nighttime'] = df_combined['nighttime'] * df_combined['count']
+
+    # Create the 'month' column and aggregate counts by month and location
+    df_combined['month'] = df_combined['date'].dt.to_period('M')
+    df_final = df_combined.groupby(['month', 'location']).sum().reset_index()
+
 
     #Convert month to string because of extra metadata
     df_final['month']=df_final['month'].astype(str)

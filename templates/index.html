@@ -8,6 +8,7 @@
   <title>Bike and Foot Traffic at Popular Tourist Spots throughout Seattle</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+  <link rel="stylesheet" href="../static/js/css/style.css">
   <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
   <script src="https://unpkg.com/leaflet.heat@0.2.0/dist/leaflet-heat.js"></script>
   <link rel="stylesheet" href="../static/css/style.css">
@@ -34,10 +35,20 @@
         <p>Use the interactive map below to explore the dataset</p>
       </div>
     </div>
-    <div id ="modeSwitcher">
+    <div class="well">
       <h5>Mode</h5>
-            <option value = "dayTab" class="modeTab active">Daytime</option>
-            <option value = "nightTab" class="modeTab">Nighttime</option>
+      <select id="modeDropdown">
+        <option value="light">Day time</option>
+        <option value="dark">Night time</option>
+      </select>
+    </div>
+    <div class="well">
+      <h5>Select Time</h5>
+      <select id="timeDropdown">
+        <option value="total">Total</option>
+        <option value="daytime">Daytime</option>
+        <option value="nighttime">Nighttime</option>
+      </select>
     </div>
     <div class="row">
       <div class="col-md-12">
