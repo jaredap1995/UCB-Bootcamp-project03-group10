@@ -62,7 +62,7 @@ def freemont_year():
 
 @app.route("/api/broadway_year")
 def broadway_year():
-    query = '''Select date_part('year', date) as year, SUM(total), SUM(north_bike), SUM (south_bike)
+    query = '''Select date_part('year', date) as year, SUM(north_south_sum_broadway), SUM(north_bike_broadway), SUM(south_bike_broadway)
     from broadway
     group by year'''
     cursor.execute(query)
@@ -106,7 +106,7 @@ def burke_gilman_year():
 
 @app.route("/api/fremont_hourly")
 def freemont_hourly():
-    query = '''SELECT date, total, east, west
+    query = '''SELECT date, east_west_sum_fremont, east_bike_fremont, west_bike_fremont
             from fremont;'''
     cursor.execute(query)
 
@@ -119,6 +119,25 @@ def freemont_hourly():
         dict_bikes['total'] = total
         dict_bikes['east'] = east
         dict_bikes['west'] = west
+        bikes_list.append(dict_bikes)
+        
+    return jsonify(bikes_list)
+
+@app.route("/api/broadway_hourly")
+def broadway_hourly():
+    query = '''SELECT date, north_south_sum_broadway, north_bike_broadway, south_bike_broadway
+            from broadway;'''
+    cursor.execute(query)
+
+    first = cursor.fetchall()
+
+    bikes_list = []
+    for date, total, north, south in first:
+        dict_bikes = {}
+        dict_bikes['date'] = date
+        dict_bikes['total'] = total
+        dict_bikes['north'] = north
+        dict_bikes['south'] = south
         bikes_list.append(dict_bikes)
         
     return jsonify(bikes_list)

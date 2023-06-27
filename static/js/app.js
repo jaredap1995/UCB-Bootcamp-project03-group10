@@ -8,80 +8,7 @@ window.Apex = {
   }
 };
 
-// let url_2 = "/api/broadway";
-// let url = "/api/alldata";
-// let url_3 = "/api/burkegilman";
-
-// d3.json(url_2)
-//   .then((data_b) => {
-//     let year_list_b = [];
-//     let total_list_b = [];
-
-//     data_b.forEach((elem) => {
-//       console.log({ elem });
-//       year_list_b.push(elem.year);
-//       total_list_b.push(elem.total);
-//     });
-
-//     var bdata = [
-//       {
-//         x: year_list_b,
-//         y: total_list_b,
-//         type: 'bar'
-//       }
-//     ];
-
-//     Plotly.newPlot('barb', bdata);
-
-//     return d3.json(url);
-//   })
-//   .then((data) => {
-//     let year_list = [];
-//     let total_list = [];
-
-//     data.forEach((element) => {
-//       console.log({ element });
-//       year_list.push(element.year);
-//       total_list.push(element.all);
-//     });
-
-//     var bardata = [
-//       {
-//         x: year_list,
-//         y: total_list,
-//         type: 'bar'
-//       }
-//     ];
-
-//     Plotly.newPlot('bar', bardata);
-
-//     return d3.json(url_3);
-//   })
-//   .then((data_bg) => {
-//     let year_list_bg = [];
-//     let total_list_bg = [];
-
-//     data_bg.forEach((ele) => {
-//       console.log({ ele });
-//       year_list_bg.push(ele.year);
-//       total_list_bg.push(ele.total_ped_and_bike);
-//     });
-
-//     var bgdata = [
-//       {
-//         x: year_list_bg,
-//         y: total_list_bg,
-//         type: 'bar'
-//       }
-//     ];
-
-//     Plotly.newPlot('barbg', bgdata);
-//   })
-//   .catch((error) => {
-//     console.log('Error:', error);
-//   });
-
-  var map = L.map('mapid').setView([47.6062, -122.3321], 13);
+var map = L.map('mapid').setView([47.6062, -122.3321], 13);
 
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
@@ -119,6 +46,7 @@ d3.json(broadwayData)
   });
   console.log({broadwayNB});
   console.log({broadwaySB});
+  console.log({broadwayDate});
 
   // If statements will go here to added time scale and locations
   let leftYData = broadwayNB
@@ -297,82 +225,83 @@ d3.json(broadwayData)
   chartBar.render();
 
   return d3.json(fremontHourly)
-})
-  .then(function(fremontDataHourly) {
-    let fremontDate = []
-    let fremontEB = []
-    let fremontWB = []
-    let fremontTotal = []
-  
-    fremontDataHourly.forEach((elem) => {
-      // console.log({elem})
-      fremontDate.push(elem.date);
-      fremontEB.push(elem.east);
-      fremontWB.push(elem.west);
-      fremontTotal.push(elem.total)
-    });
-    // Ideally would have daily data for every location in one graph
-  var trace1 = {
-    type: "scatter",
-    mode: "lines",
-    name: 'Total Bike Traffic',
-    x: fremontDate,
-    y: fremontTotal,
-  //   x: unpack(rows, 'Date'),
-  //   y: unpack(rows, 'AAPL.High'),
-    line: {color: '#7F7F7F'}
-  }
-
-  var data = [trace1];
-  
-  var layout = {
-    title: 'Total Bike Traffic',
-    xaxis: {
-      autorange: false,
-      range: ['2012', '2023'],
-      rangeselector: {buttons: [
-          {
-            count: 1,
-            label: '1d',
-            step: 'day',
-            stepmode: 'backward'
-          },
-          {
-            count: 1,
-            label: '1w',
-            step: 'week',
-            stepmode: 'backward'
-          },
-          {
-            count: 1,
-            label: '1m',
-            step: 'month',
-            stepmode: 'backward'
-          },
-          {
-            count: 6,
-            label: '6m',
-            step: 'month',
-            stepmode: 'backward'
-          },
-          {
-            count: 1,
-            label: '1y',
-            step: 'year',
-            stepmode: 'backward'
-          },
-          {step: 'all'}
-        ]},
-      rangeslider: {range: ['2012', '2023']},
-      type: 'date'
-    },
-    yaxis: {
-      autorange: true,
-      range: [0, 1000],
-      type: 'linear'
-    }
-  };
-  console.log({fremontDate})
-  console.log({fremontTotal})
-  Plotly.newPlot("barbg", data, layout);
   });
+  // .then(function(fremontDataHourly) {
+  //   let fremontDate = []
+  //   let fremontEB = []
+  //   let fremontWB = []
+  //   let fremontTotal = []
+  
+  //   fremontDataHourly.forEach((elem) => {
+  //     // console.log({elem})
+  //     fremontDate.push(elem.year);
+  //     fremontEB.push(elem.east);
+  //     fremontWB.push(elem.west);
+  //     fremontTotal.push(elem.total)
+  //   });
+  //   // Ideally would have daily data for every location in one graph
+  //   var trace1 = {
+  //     type: "scatter",
+  //     mode: "lines",
+  //     name: 'Total Bike Traffic',
+  //     x: fremontDate,
+  //     y: fremontTotal,
+  //   //   x: unpack(rows, 'Date'),
+  //   //   y: unpack(rows, 'AAPL.High'),
+  //     line: {color: '#7F7F7F'}
+  //   }
+
+  //   var data = [trace1];
+  
+  //   var layout = {
+  //     title: 'Total Bike Traffic',
+  //     xaxis: {
+  //       autorange: false,
+  //       range: ['2012', '2023'],
+  //       rangeselector: {buttons: [
+  //           {
+  //             count: 1,
+  //             label: '1d',
+  //             step: 'day',
+  //             stepmode: 'backward'
+  //           },
+  //           {
+  //             count: 1,
+  //             label: '1w',
+  //             step: 'week',
+  //             stepmode: 'backward'
+  //           },
+  //           {
+  //             count: 1,
+  //             label: '1m',
+  //             step: 'month',
+  //             stepmode: 'backward'
+  //           },
+  //           {
+  //             count: 6,
+  //             label: '6m',
+  //             step: 'month',
+  //             stepmode: 'backward'
+  //           },
+  //           {
+  //             count: 1,
+  //             label: '1y',
+  //             step: 'year',
+  //             stepmode: 'backward'
+  //           },
+  //           {step: 'all'}
+  //       ]},
+  //       rangeslider: {range: ['2012', '2023']},
+  //       type: 'date'
+  //     },
+  //     yaxis: {
+  //       autorange: true,
+  //       range: [0, 1000],
+  //       type: 'linear'
+  //     }
+  //   };
+  //   console.log({fremontDate})
+  //   console.log({fremontTotal})
+  //   // console.log({broadwayDate})
+  //   Plotly.newPlot("barbg", data, layout);
+  // });
