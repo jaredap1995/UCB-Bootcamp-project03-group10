@@ -1,0 +1,26 @@
+body.light-mode {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+body.dark-mode {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+#modeSwitcher {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+#modeSwitcher .modeTab {
+    padding: 10px;
+    cursor: pointer;
+    text-align: center;
+}
+
+#modeSwitcher .modeTab.active {
+    color: #ffffff;
+    background-color: #007bff;
+}
