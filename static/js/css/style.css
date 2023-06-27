@@ -1,26 +1,26 @@
-body.light-mode {
-    background-color: #ffffff;
-    color: #000000;
+  body.light-mode {
+    background-color: white;
+    color: black;
+  }
+  body.dark-mode {
+    background-color: #1a1a1a;
+    color: white;
+  }
+  /* Add this if you want links to be visible in dark mode */
+  body.dark-mode a {
+    color: white;
+  }
+  /* Add this if you want the select dropdowns to match the dark theme */
+  body.dark-mode select {
+    background-color: #1a1a1a;
+    color: white;
+    border: none;
+  }
+
+  body.dark-mode h5 {
+    color: black;
 }
 
-body.dark-mode {
-    background-color: #000000;
-    color: #ffffff;
-}
-
-#modeSwitcher {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-}
-
-#modeSwitcher .modeTab {
-    padding: 10px;
-    cursor: pointer;
-    text-align: center;
-}
-
-#modeSwitcher .modeTab.active {
-    color: #ffffff;
-    background-color: #007bff;
+body.dark-mode a {
+    color: black;
 }
