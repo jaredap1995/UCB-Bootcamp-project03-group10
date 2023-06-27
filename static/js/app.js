@@ -29,36 +29,6 @@ function optionChanged(yearNum){
     displayPieChart(yearNum)
 }
 
-// function displayPieChart(yearNum){
-//     d3.json("/api/burkegilman").then((data) => {
-//         console.log('data:', data)
-//         //year in db is a number yearNum is a string in JS
-//         let selectedYear = data.filter((elem) => elem.year === Number(yearNum))[0];
-//         console.log('selected year::::::',selectedYear)
-        
-//         let bike_north = selectedYear.bike_north_burke;
-//         let bike_south = selectedYear.bike_south_burke;
-//         let pedestrian_north = selectedYear.pedestrian_north_burke;
-//         let pedestrian_south = selectedYear.pedestrian_south_burke;
-
-//         var data = [{
-
-//             values: [bike_north, bike_south, pedestrian_north, pedestrian_south],
-//             labels: ["Bike North", "Bike South", "Pedestrian North", "Pedestrian South"],
-//             type: 'pie'
-//         }];
-    
-//         var layout = {
-//             title: "Burke Gilman Bicycle and Pedestrian",
-//             height: 400,
-//             width: 500
-//         };
-    
-//         Plotly.newPlot('pie', data, layout);
-//     });
-
-
-//     };
 
 
 inint()
