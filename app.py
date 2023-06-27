@@ -44,6 +44,27 @@ def welcome():
     return render_template("index.html")
 
 
+@app.route("/api/burkegilman")
+def burke_gilman():
+    query = '''Select date_part('year', date) as year, SUM(total_ped_and_bike_burke), SUM(pedestrian_south_burke), SUM(pedestrian_north_burke), SUM (bike_north_burke), SUM(bike_south_burke)
+    from burke_gilman
+    group by year'''
+    cursor.execute(query)
+    first = cursor.fetchall()
+    print(first)
+    bikes_ped_list = []
+    for date, total_ped_and_bike_burke, pedestrian_south_burke, pedestrian_north_burke,bike_north_burke, bike_south_burke in first:
+        dict_bikes = {}
+        dict_bikes['year'] = date
+        dict_bikes['total_ped_and_bike_burke'] = total_ped_and_bike_burke
+        dict_bikes['pedestrian_south_burke'] = pedestrian_south_burke
+        dict_bikes['pedestrian_north_burke'] = pedestrian_north_burke
+        dict_bikes['bike_north_burke'] = bike_north_burke
+        dict_bikes['bike_south_burke'] = bike_south_burke
+        bikes_ped_list.append(dict_bikes)
+    return jsonify(bikes_ped_list)
+
+
 @app.route("/api/heatmap_data")
 def heatmap_data():
 
@@ -112,7 +133,6 @@ def heatmap_data():
     data_dict = df_final.to_dict('records')
 
     return jsonify(data_dict)
-
 
 
 if __name__ == '__main__':
