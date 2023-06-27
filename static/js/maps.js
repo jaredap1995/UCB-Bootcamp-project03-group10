@@ -12,6 +12,35 @@ const locations = [
 
 var markers = L.layerGroup().addTo(map);
 
+// Light and dark mode
+let light = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {}).addTo(map);
+let dark = L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_all/{z}/{x}/{y}.png', {});
+
+let currentLayer = light;
+
+// Mode switcher
+let modeDropdown = document.getElementById('modeDropdown');
+
+modeDropdown.addEventListener('change', (event) => {
+    let selectedMode = event.target.value;
+    
+    document.body.className = selectedMode + '-mode';
+
+    // remove the current layer from the map
+    map.removeLayer(currentLayer);
+
+    // switch the map layer
+    if (selectedMode === 'light') {
+        currentLayer = light;
+    } else {
+        currentLayer = dark;
+    }
+
+    // add the new layer to the map
+    currentLayer.addTo(map);
+});
+
+
 // Fetch data
 d3.json('/api/heatmap_data').then((data) => {
 
