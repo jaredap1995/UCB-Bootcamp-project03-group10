@@ -65,6 +65,7 @@ def burke_gilman():
     return jsonify(bikes_ped_list)
 
 
+
 @app.route("/api/heatmap_data")
 def heatmap_data():
 
@@ -132,7 +133,38 @@ def heatmap_data():
 
     data_dict = df_final.to_dict('records')
 
-    return jsonify(data_dict)
+@app.route("/api/broadway_hourly")
+def broadway_hourly():
+    query = '''SELECT date, north_south_sum_broadway, north_bike_broadway, south_bike_broadway
+            from broadway;'''
+    cursor.execute(query)
+
+    first = cursor.fetchall()
+
+    bikes_list = []
+    for date, total, north, south in first:
+        dict_bikes = {}
+        dict_bikes['date'] = date
+        dict_bikes['total'] = total
+        dict_bikes['north'] = north
+        dict_bikes['south'] = south
+        bikes_list.append(dict_bikes)
+        
+    return jsonify(bikes_list)
+
+
+@app.route("/api/fremont_hourly")
+def fremont_hourly():
+    bikes_list = []
+    for date, total, east, west in first:
+        dict_bikes = {}
+        dict_bikes['date'] = date
+        dict_bikes['total'] = total
+        dict_bikes['east'] = east
+        dict_bikes['west'] = west
+        bikes_list.append(dict_bikes)
+        
+    return jsonify(bikes_list)
 
 
 if __name__ == '__main__':
