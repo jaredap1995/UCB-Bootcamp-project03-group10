@@ -5,41 +5,27 @@
 
 
 
-
-
-
-let url_2 = "/api/broadway";
-let url = "/api/alldata";
-let url_3 = "/api/burkegilman";
-let url_4 = "/api/weather_bins_data"
-
-d3.json(url_4).then(function(jsData){
-  //Binned weather data bar
-
-  let chartSample=jsData;
-  let valueArray=chartSample.samples.filter(
-      (sampleObject)=>sampleObject.temp_real_f==sample_id);
-  console.log(valueArray);
-  let sampleValue=valueArray[0];
-  let north_bike_broadway=sampleValue.north_bike_broadway;
-
-  let barData=[{
-      x: temp_real_f
-      y: north_bike_broadway
+//Marina pie_chart from app.js
+function tempChart(tempNum) {
+  d3.json("/api/weather_bins_data").then((data) => {
+    console.log(data);})}
+    let selectTemp = data.filter((elem) => elem.temp == tempNum)[0];
+    let bike_north_burke = selectTemp.bike_north_burke;
+    let bike_south_burke = selectTemp.bike_south_burke;
+    let pedestrian_northTemp = selectTemp.east_bike_fremont;
+    let pedestrian_southTemp = selectTemp.west_bike_fremont;
+    let bike_north_broadwayTemp = selectTemp.north_bike_broadway;
+    let bike_south_broadwayTemp = selectTemp.south_bike_broadway;
+    var barData = [{
+      x: ['Burke North', 'Burke South', 'Fremont East', 'Fremont West', 'Broadway North', 'Broadway South'],
+      y: [bike_north_burke, bike_south_burke, pedestrian_northTemp, pedestrian_southTemp, bike_north_broadwayTemp, bike_south_broadwayTemp],
       type: "bar",
-      orientation: "h",
-      marker:{
-          size:sample_values
-      }    
+      orientation: "v",
+      }];
+    var layout = {
+      title: "Bicycle count by Weather",
+      height: 400,
+      width: 500};
+    Plotly.newPlot('bar', data, layout);
 
-  }]);
-  Plotly.newPlot("bar",barData);
-  console.log(north_bike_broadway);
-      };
-
-// Dropdown selection function
-function optionChanged(dataOption){
-  console.log(dataOption)
-
-url_4(dataOption)
-};
+init();

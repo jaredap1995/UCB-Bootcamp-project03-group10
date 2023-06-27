@@ -121,12 +121,8 @@ def alldata_weatherbins():
 
     results.index=results['temp_real_f']
 
-    
-
     data_dict=results.to_dict('records')
     return jsonify(data_dict)
-
-
 
 if __name__ == '__main__':
     app.run(debug=True)
