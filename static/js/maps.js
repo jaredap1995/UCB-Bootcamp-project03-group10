@@ -1,4 +1,4 @@
-//Marina pie_chart app.js
+//Marina pie_chart from app.js
 
 
 function displayPieChart(yearNum) {
@@ -51,34 +51,39 @@ function displayPieChart(yearNum) {
   let currentLayer = light;
 
   // Fetch data
-  d3.json('/api/heatmap_data').then((data) => {
+d3.json('/api/heatmap_data').then((data) => {
 
-    let monthDropdown = document.getElementById('monthDropdown');
-    let timeDropdown = document.getElementById('timeDropdown');
-    let months = [...new Set(data.map(point => point.month))];
+  let monthDropdown = document.getElementById('monthDropdown');
+  let months = [...new Set(data.map(point => point.month))];
 
-    for (let month of months) {
-      let option = document.createElement('option');
-      option.value = month;
-      option.text = month;
-      monthDropdown.appendChild(option);
-    };
+  for (let month of months) {
+    let option = document.createElement('option');
+    option.value = month;
+    option.text = month;
+    monthDropdown.appendChild(option);
+  };
 
-    // Initially disable the timeDropdown until a month is selected
-    timeDropdown.disabled = true;
-
-    monthDropdown.addEventListener('change', () => {
-      // Enable the timeDropdown when a month is selected
-      timeDropdown.disabled = false;
-      if (monthDropdown.value !== '') {
-        updateMarkers();
-      }
+  monthDropdown.addEventListener('change', () => {
+    if (monthDropdown.value !== '') {
+      updateMarkers();
+    }
   });
 
-  timeDropdown.addEventListener('change', (event) => {
-    let selectedTime = event.target.value;
-    
-    // If the selected time is nighttime, set the page to dark mode, otherwise set to light mode
+  let timeButtons = document.querySelectorAll('#timeOptions .btn');
+
+  let selectedTime = 'count';
+
+// The button listener to update the data on each change event
+timeButtons.forEach((btn) => {
+  btn.addEventListener('click', function() {
+    timeButtons.forEach(b => b.classList.remove('active'));
+    this.classList.add('active');
+
+    selectedTime = this.id === 'total' ? 'count' : this.id;
+
+    console.log("Button clicked, selectedTime: ", selectedTime);
+
+    // Page = dark mode if nighttime is selected
     if (selectedTime === 'nighttime') {
         document.body.className = 'dark-mode';
         map.removeLayer(currentLayer);
@@ -88,23 +93,25 @@ function displayPieChart(yearNum) {
         map.removeLayer(currentLayer);
         currentLayer = light;
     }
-    
+
     currentLayer.addTo(map);
 
     if (monthDropdown.value !== '') {
-        updateMarkers();
+        updateMarkers(); 
     }
   });
+});
 
-  function updateMarkers() {
+    // Updating marker size when month is changed
+    function updateMarkers() { 
     let selectedMonth = monthDropdown.value;
-    let selectedTime = timeDropdown.value === 'total' ? 'count' : timeDropdown.value;
 
     markers.clearLayers();
 
     // Calculate min and max traffic
-    let minTraffic = Infinity
+    let minTraffic = Infinity;
     let maxTraffic = -Infinity;
+
 
     locations.forEach(location => {
       let filteredData = data.filter(point => point.month == selectedMonth && point.location == location.name);
@@ -118,7 +125,7 @@ function displayPieChart(yearNum) {
 
       minTraffic = Math.min(minTraffic, totalTraffic);
       maxTraffic = Math.max(maxTraffic, totalTraffic);
-});
+    });
 
     locations.forEach(location => {
       // Normalize traffic to a 0-1 range
@@ -126,9 +133,9 @@ function displayPieChart(yearNum) {
 
       let color;
       if (selectedTime === 'nighttime') {
-        color = `rgb(0, 0, 255)`; // blue
+        color = `rgb(0, 0, 255)`; // blue for nighttime
       } else {
-        color = `rgb(${255 * normalizedTraffic + 300}, 0, 0)`;
+        color = `rgb(255, 0, 0)`; // red for daytime
       }
 
       // Create and add marker
@@ -146,8 +153,7 @@ function displayPieChart(yearNum) {
     });
   }
 
-  }).catch((error) => {
-    console.log('Error:', error);
-  });
-  });
-  }
+}).catch((error) => {
+  console.log('Error:', error);
+});
+  })};
