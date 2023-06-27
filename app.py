@@ -15,7 +15,7 @@ load_dotenv()
 # Connection details
 host = os.getenv("HOST")     
 database = os.getenv("database")
-user = os.getenv("username")
+user = "hgykzxtn"
 password = os.getenv("password")
 port=5432      
 
