@@ -34,20 +34,27 @@
         <p>Use the interactive map below to explore the dataset</p>
       </div>
     </div>
-    <div class="well">
-      <h5>Pedestrian vs Bikes </h5>
-      <select id="selectPB" onchange="optionChanged(this.value)"></select>
-    </div>
-    <div class="well">
-      <h5>Select Time</h5>
-      <select id="timeDropdown">
-        <option value="total">Total</option>
-        <option value="daytime">Daytime</option>
-        <option value="nighttime">Nighttime</option>
-      </select>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="well">
+          <h5>Pedestrian vs Bikes </h5>
+          <select id="selectPB" onchange="optionChanged(this.value)"></select>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div id="pie"></div>
+      </div>
     </div>
     <div class="row">
-      <div class="col-md-12">
+      <div class="col-md-6">
+        <div class="well">
+          <h5>Select Time</h5>
+          <select id="timeDropdown">
+            <option value="total">Total</option>
+            <option value="daytime">Daytime</option>
+            <option value="nighttime">Nighttime</option>
+          </select>
+        </div>
         <div class="well">
           <h5>Select Month</h5>
           <select id="monthDropdown">
@@ -55,14 +62,7 @@
           </select>
         </div>
       </div>
-    </div>
-      <div class = "row">
-        <div class="col-md-12">
-          <div id="pie"></div>
-        </div>  
-    </div>
-    <div class="row">
-      <div class="col-md-12">
+      <div class="col-md-6">
         <div id="mapid" style="height: 600px;"></div>
       </div>
     </div>
@@ -73,7 +73,7 @@
  
   <script src="../static/js/plotly.min.js"></script>
   <script src="../static/js/app.js"></script>
-  <!-- <script src="../static/js/maps.js"></script> -->
+  <script src="../static/js/maps.js"></script>
 
 </body>
 
