@@ -1,3 +1,6 @@
+import ApexCharts from 'apexcharts'
+
+
 window.Apex = {
   dataLabels: {
     enabled: false

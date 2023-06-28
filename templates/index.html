@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Bike and Foot Traffic at Popular Tourist Spots throughout Seattle</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="../static/js/css/style.css">
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src=“https://cdn.jsdelivr.net/npm/apexcharts”></script>
+    <script type=“module” src=“../static/js/apexcharts.min.js”></script>
+    <script src="https://unpkg.com/leaflet.heat@0.2.0/dist/leaflet-heat.js"></script>
+    <style>
+        #monthDropdown {
+            width: 100%;
+            height: 35px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .jumbotron {
+            background-color: #f8f9fa;
+            color: #3c3c3c;
+        }
+    </style>
+</head>
+
+
+<body>
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 jumbotron text-center">
+                <h1>Bike and Foot Traffic at Popular Tourist Spots throughout Seattle</h1>
+                <p>Use the interactive map below to explore the dataset</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="well">
+                    <h5>Pedestrian vs Bikes </h5>
+                    <select id="selectPB" onchange="optionChanged(this.value)"></select>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div id="pie"></div>
+            </div>
+        </div>
+            <div class="row">
+                <div class="col-md-6">
+                  <div class="well">
+                    <h5>Location</h5>
+                    <select id="selLocation">
+                      <option value="N/A">Choose a Location</option>
+                      <option value="Broadway">Broadway</option>
+                      <option value="Fremont">Fremont</option>
+                      <option value="Burke Gilman">Burke Gilman</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-md-5">
+                    <div id="bar"></div>
+                  </div>
+                  <div class="col-md-5">
+                    <div id="barb"></div>
+                  </div>
+                </div>
+                <div class=“row”>
+                  <div class=“col-md-12”>
+                    <div id =“barbg”></div>
+            <div class="well">
+                <h5>Select Time</h5>
+                <div id="timeOptions" class="row">
+                    <div class="col-md-4">
+                        <button type="button" class="btn btn-default btn-block active" id="total">Total</button>
+                    </div>
+                    <div class="col-md-4">
+                        <button type="button" class="btn btn-default btn-block" id="daytime">Daytime</button>
+                    </div>
+                    <div class="col-md-4">
+                        <button type="button" class="btn btn-default btn-block" id="nighttime">Nighttime</button>
+                    </div>
+                </div>
+            </div>
+            <div class="well">
+                <h5>Select Month</h5>
+                <select id="monthDropdown">
+                    <option value="">--Select Month--</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div id="mapid" style="height: 600px;"></div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="../static/js/plotly.js"></script>
+    <script src="../static/js/app.js"></script>
+    <script src="../static/js/maps.js"></script>
+    <script src="../static/js/visuals.js"></script>
+
+
+</body>
+
+
+</html>
