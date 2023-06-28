@@ -251,5 +251,26 @@ def fremont_month():
         bikes_list.append(dict_bikes)
     return jsonify(bikes_list)
 
+@app.route("/api/totals")
+def totals():
+    query = """Select date_part('year',b.date) as year, sum(b.north_south_sum_broadway), sum(bg.total_ped_and_bike_burke), sum(f.east_west_sum_fremont)
+                from broadway as b
+                inner join burke_gilman as bg ON 
+                b.date = bg.date
+                inner join fremont as f ON
+                b.date = f.date
+                group by year;"""
+    cursor.execute(query)
+    first = cursor.fetchall()
+    bikes_list = []
+    for date, total_b, total_bg, total_f in first:
+        dict_bikes = {}
+        dict_bikes['date'] = date
+        dict_bikes['total_b'] = total_b
+        dict_bikes['total_bg'] = total_bg
+        dict_bikes['total_f'] = total_f
+        bikes_list.append(dict_bikes)
+    return jsonify(bikes_list)
+
 if __name__ == '__main__':
     app.run(port=8000, debug=True)

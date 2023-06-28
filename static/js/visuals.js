@@ -57,56 +57,6 @@ function init(){
   }
   chartBarRight = new ApexCharts(document.querySelector("#barb"), optionsBarRight);
   chartBarRight.render();
-
-  totalLayout = {
-    title: 'Total Bike Traffic',
-    xaxis: {
-      autorange: true,
-      range: ['2014', '2021'],
-      rangeselector: {buttons: [
-          {
-            count: 1,
-            label: '1d',
-            step: 'day',
-            stepmode: 'backward'
-          },
-          {
-            count: 1,
-            label: '1w',
-            step: 'week',
-            stepmode: 'backward'
-          },
-          {
-            count: 1,
-            label: '1m',
-            step: 'month',
-            stepmode: 'backward'
-          },
-          {
-            count: 6,
-            label: '6m',
-            step: 'month',
-            stepmode: 'backward'
-          },
-          {
-            count: 1,
-            label: '1y',
-            step: 'year',
-            stepmode: 'backward'
-          },
-          {step: 'all'}
-      ]},
-      rangeslider: {range: ['2014', '2021']},
-      type: 'date'
-    },
-    yaxis: {
-      autorange: true,
-      range: [0, 1000],
-      type: 'linear'
-    }
-  }
-  totalChartData = [{}]
-  Plotly.newPlot("barbg", totalChartData, totalLayout);
 };
 
 d3.selectAll('#selLocation').on("change", updateVisuals);
@@ -343,19 +293,6 @@ function updateVisuals() {
               intersect: false
             }
         });
-
-        trace1 = {
-          type: "scatter",
-          mode: "lines",
-          name: 'Total Bike Traffic',
-          x: leftXData,
-          y: dataTotal,
-          line: {color: '#30b842'}
-        }
-      
-        totalChartData = [trace1];
-        Plotly.newPlot("barbg", totalChartData, totalLayout);
-
       });
   }
 
@@ -566,17 +503,6 @@ function updateVisuals() {
             intersect: false
           }
       });
-      trace1 = {
-        type: "scatter",
-        mode: "lines",
-        name: 'Total Bike Traffic',
-        x: leftXData,
-        y: dataTotal,
-        line: {color: '#30b842'}
-      }
-    
-      totalChartData = [trace1];
-      Plotly.newPlot("barbg", totalChartData, totalLayout);
     });
   }
 
@@ -588,7 +514,7 @@ function updateVisuals() {
     else if (timescale == 'Month') {
       jsonUrl = "/api/burkegilman_month";
     }
-    
+
     d3.json(jsonUrl)
       .then(function(data) {
         data.forEach((elem) => {
@@ -791,20 +717,100 @@ function updateVisuals() {
             intersect: false
           }
       });
-      trace1 = {
-        type: "scatter",
-        mode: "lines",
-        name: 'Total Bike Traffic',
-        x: leftXData,
-        y: dataTotal,
-        line: {color: '#30b842'}
-      }
-    
-      totalChartData = [trace1];
-      Plotly.newPlot("barbg", totalChartData, totalLayout);
     });
   }
 };
 
+let totalDates = [];
+let total_b = [];
+let total_bg = [];
+let total_f = [];
+
+d3.json('/api/totals')
+      .then(function(data) {
+        data.forEach((elem) => {
+          totalDates.push(elem.date);
+          total_b.push(elem.total_b);
+          total_bg.push(elem.total_bg);
+          total_f.push(elem.total_f);
+        });
+      traceb = {
+        type: "scatter",
+        mode: "lines",
+        name: 'Broadway',
+        x: totalDates,
+        y: total_b,
+        line: {color: '#30b842',
+              width: 6}
+      }
+      tracebg = {
+        type: "scatter",
+        mode: "lines",
+        name: 'Burke Gilman',
+        x: totalDates,
+        y: total_bg,
+        line: {color: '#077b8a',
+               width: 6}
+      }
+      tracef = {
+        type: "scatter",
+        mode: "lines",
+        name: 'Fremont',
+        x: totalDates,
+        y: total_f,
+        line: {color: '#5c3c92',
+               width: 6}
+      }
+      totalLayout = {
+        title: 'Total Bike Traffic',
+        xaxis: {
+          autorange: false,
+          range: ['2014', '2020'],
+          rangeselector: {buttons: [
+              {
+                count: 1,
+                label: '1d',
+                step: 'day',
+                stepmode: 'backward'
+              },
+              {
+                count: 1,
+                label: '1w',
+                step: 'week',
+                stepmode: 'backward'
+              },
+              {
+                count: 1,
+                label: '1m',
+                step: 'month',
+                stepmode: 'backward'
+              },
+              {
+                count: 6,
+                label: '6m',
+                step: 'month',
+                stepmode: 'backward'
+              },
+              {
+                count: 1,
+                label: '1y',
+                step: 'year',
+                stepmode: 'backward'
+              },
+              {step: 'all'}
+          ]},
+          rangeslider: {range: ['2014', '2020']},
+          type: 'date'
+        },
+        yaxis: {
+          autorange: true,
+          range: [0, 1000],
+          type: 'linear'
+        }
+      }
+
+      totalChartData = [traceb, tracebg, tracef]
+      Plotly.newPlot("barbg", totalChartData, totalLayout);
+    });
 
 init();
