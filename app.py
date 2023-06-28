@@ -155,7 +155,7 @@ def broadway_year():
 
 @app.route("/api/burkegilman_year")
 def burke_gilman_year():
-    query = '''Select date_part('year', date) as year, SUM(total_ped_and_bike_burke), SUM(pedestrian_south), SUM(pedestrian_north_burke), SUM(bike_north_burke), SUM(bike_south_burke)
+    query = '''Select date_part('year', date) as year, SUM(total_ped_and_bike_burke), SUM(pedestrian_south_burke), SUM(pedestrian_north_burke), SUM(bike_north_burke), SUM(bike_south_burke)
     from burke_gilman
     group by year'''
     cursor.execute(query)
