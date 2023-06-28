@@ -61,7 +61,7 @@ function init(){
   totalLayout = {
     title: 'Total Bike Traffic',
     xaxis: {
-      autorange: false,
+      autorange: true,
       range: ['2014', '2021'],
       rangeselector: {buttons: [
           {
@@ -110,12 +110,15 @@ function init(){
 };
 
 d3.selectAll('#selLocation').on("change", updateVisuals);
+d3.selectAll('#selTimeScale').on("change", updateVisuals);
 
 function updateVisuals() {
   // Use D3 to select the dropdown menu
   let dropdownMenuLocation = d3.select("#selLocation");
+  let dropdownMenuTimeScale = d3.select("#selTimeScale");
   // Assign the value of the dropdown menu option to a variable
   let location = dropdownMenuLocation.property("value");
+  let timescale = dropdownMenuTimeScale.property("value");
 
   let jsonUrl = [];
 
@@ -131,7 +134,13 @@ function updateVisuals() {
 
   if (location == 'Broadway') {
     // Broadway
-    jsonUrl = "/api/broadway_year";
+    if (timescale == 'Year') {
+      jsonUrl = "/api/broadway_year";
+    }
+    else if (timescale == 'Month') {
+      jsonUrl = "/api/broadway_month";
+    }
+
     d3.json(jsonUrl)
       .then(function(data) {
         data.forEach((elem) => {
@@ -352,7 +361,13 @@ function updateVisuals() {
 
   else if (location == 'Fremont') {
     // Fremont
-    jsonUrl = "/api/fremont_year";
+    if (timescale == 'Year') {
+      jsonUrl = "/api/fremont_year";
+    }
+    else if (timescale == 'Month') {
+      jsonUrl = "/api/fremont_month";
+    }
+
     d3.json(jsonUrl)
       .then(function(data) {
         data.forEach((elem) => {
@@ -567,7 +582,13 @@ function updateVisuals() {
 
   else if (location == 'Burke Gilman') {
     // Burke Gilman
-    jsonUrl = "/api/burkegilman_year";
+    if (timescale == 'Year') {
+      jsonUrl = "/api/burkegilman_year";
+    }
+    else if (timescale == 'Month') {
+      jsonUrl = "/api/burkegilman_month";
+    }
+    
     d3.json(jsonUrl)
       .then(function(data) {
         data.forEach((elem) => {
@@ -784,5 +805,6 @@ function updateVisuals() {
     });
   }
 };
+
 
 init();
