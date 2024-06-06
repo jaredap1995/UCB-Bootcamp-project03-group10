@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
   <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
   <script src="https://unpkg.com/leaflet.heat@0.2.0/dist/leaflet-heat.js"></script>
-  <link rel="stylesheet" href="../static/css/style.css">
+  <!--<link rel="stylesheet" href="../static/css/style.css">-->
 </head>
 
 <body>
@@ -18,48 +18,44 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12 jumbotron text-center">
-        <h1>Belly Button Biodiversity Dashboard</h1>
-        <p>Use the interactive charts below to explore the dataset</p>
+        <h1>Dashboard</h1>
+        <p></p>
       </div>
     </div>
-    <div class="row">
-      <div class="col-md-2">
-        <div class="well">
-          <h5>Test Subject ID No.:</h5>
-          <select id="selDataset" onchange="optionChanged(this.value)"></select>
-        </div>
-        <div class="panel panel-primary">
-          <div class="panel-heading">
-            <h3 class="panel-title">Demographic Info</h3>
-          </div>
-          <div id="sample-metadata" class="panel-body"></div>
-        </div>
-      </div>
-      <div class = "row">
-      <div class="col-md-5">
-        <div id="bar"></div>
-      </div>
-      <div class="col-md-5">
-        <div id="barb"></div>
-      </div>  
-    </div>
+   
+
+    
     <div class = "row">
       <div class="col-md-5">
-        <div id ="barbg"></div>
+        <div id ="bar"></div>
       </div>
     </div>
-    <div class="row">
-      <div class="col-md-12">
-        <div id="mapid" style="height: 600px;"></div>
-      </div>
+
+
+    <div class="well">
+      <h5>pedestrian vs bikes </h5>
+      <select id="selectTemp" onchange="optionChanged(this.value)"></select>
     </div>
+    
+      
+    
+      
+    
+
+
   </div>
   
 
   <script src="https://d3js.org/d3.v5.min.js"></script>
- 
-  <script src="../static/js/plotly.min.js"></script>
-  <script src="../static/js/app.js"></script>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+ <!----<script src="../static/js/plotly.min.js"></script>-->
+  <script src="../static/js/appc.js"></script>
+  
+  <!--<script src="{{ url_for('static', filename='js/appb.js') }}"></script>-->
+  <!--<script type="text/javascript"> let myVar = {{data_json}}</script>-->
+
+
+
   
   
 </body>

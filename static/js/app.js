@@ -6,8 +6,6 @@
 
 
 
-
-
 let url_2 = "/api/broadway";
 let url = "/api/alldata";
 let url_3 = "/api/burkegilman";
@@ -97,3 +95,40 @@ L.heatLayer(heatArray).addTo(map);
 
 
 
+
+  
+  d3.json("/api/burkegilman").then((data) => {
+      let year_list = [];
+      let pedestrian_south =[];
+      let pedestrian_north =[];
+      let bike_north =[];
+      let bike_south =[];
+
+  
+      data.forEach((element) => {
+        console.log({element});
+        year_list.push(element.year);
+        total_list.push(element.pedestrian_south);
+        total_list.push(element.pedestrian_north)
+        total_list.push(element.bike_north)
+        total_list.push(element.bike_south)
+      });
+
+  var data = [{
+      values: [bike_north[0], bike_south[0], pedestrian_north[0], pedestrian_south[0]],
+      labels: ["Bike North", "Bike South", "Pedestrian North", "Pedestrian South"],
+      type: 'pie'
+  }];
+  
+  var layout = {
+      height: 400,
+      width: 500
+  };
+  
+  Plotly.newPlot('pie', data, layout);
+ }
+  )
+  
+
+
+  

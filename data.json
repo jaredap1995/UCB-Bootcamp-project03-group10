@@ -1,0 +1,47 @@
+[
+  {
+    "bike_north_burke": 5930, 
+    "bike_south_burke": 6787, 
+    "east_bike_fremont": 44715, 
+    "north_bike_broadway": 2465, 
+    "south_bike_broadway": 4154, 
+    "temp_real_f": "0-30F", 
+    "west_bike_fremont": 37315
+  }, 
+  {
+    "bike_north_burke": 258899, 
+    "bike_south_burke": 282353, 
+    "east_bike_fremont": 1028813, 
+    "north_bike_broadway": 104425, 
+    "south_bike_broadway": 129652, 
+    "temp_real_f": "31-50F", 
+    "west_bike_fremont": 1194489
+  }, 
+  {
+    "bike_north_burke": 665949, 
+    "bike_south_burke": 791641, 
+    "east_bike_fremont": 1766041, 
+    "north_bike_broadway": 163616, 
+    "south_bike_broadway": 187186, 
+    "temp_real_f": "51-70F", 
+    "west_bike_fremont": 2161399
+  }, 
+  {
+    "bike_north_burke": 279850, 
+    "bike_south_burke": 306750, 
+    "east_bike_fremont": 545584, 
+    "north_bike_broadway": 55553, 
+    "south_bike_broadway": 50449, 
+    "temp_real_f": "71-90F", 
+    "west_bike_fremont": 862450
+  }, 
+  {
+    "bike_north_burke": 1410, 
+    "bike_south_burke": 1532, 
+    "east_bike_fremont": 4284, 
+    "north_bike_broadway": 457, 
+    "south_bike_broadway": 372, 
+    "temp_real_f": "91-110F", 
+    "west_bike_fremont": 9078
+  }
+]
